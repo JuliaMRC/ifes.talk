@@ -155,7 +155,6 @@ nlu:
     - Tudo bem contigo?
     - como c ta?
     - Como vc ta?
-    - tudo bem?
 - intent: agradecer
   examples: |
     - Obrigada
@@ -235,14 +234,12 @@ nlu:
     - Que licensa voce usa bot?
     - Fala sobre licenses por favor
     - vc tem alguma licença?
-- intent: fora_do_escopo
+- intent: fallback
   examples: |
     - Qualquer coisa
     - Algo desconhecido
     - 2 + 3 é o que?
     - cuidando da vida
-    - quero pedir uma pizza
-    - quanto é o refrigerante?
 - intent: minha_religiao
   examples: |
     - qual seu religião?
@@ -305,7 +302,6 @@ nlu:
     - Vc é muito legal
     - Te acho super legal
     - C é legalzão
-    - legal
 - intent: meu_genero
   examples: |
     - qual seu genêro?
@@ -328,7 +324,6 @@ nlu:
     - Me fale seu sexo
     - Conta seu sexo aí
     - qual teu genero
-    - como é seu nome?
 - intent: saber_piada
   examples: |
     - Me conta uma piada
@@ -680,8 +675,6 @@ nlu:
     - me dá informações sobre a recuperação
     - eu posso fazer recuperação?
     - qual o mínimo de [pontos] do boletim que preciso para fazer recuperação?
-    - provas de recuperação
-    - como sao as provas de recuperacao
 - intent: pontuacao_semestral
   examples: |
     - pontuacao semestral
@@ -1229,10 +1222,9 @@ nlu:
     - [boa noite]
     - oi
     - ola
+    - oi
     - oii
     - Oii
-    - boa noite
-    - bom dia
 - intent: rod_geral
   examples: |
     - O que é o [ROD]?
@@ -2881,13 +2873,9 @@ nlu:
     - processo seletivo alunos
     - processo seletivo professor
     - processo seletivo professor substituto
-- intent: informar_nome
+- intent: nlu_fallback
   examples: |
-    - quero te falar meu nome
-    - vc quer saber meu nome?
-#- intent: nlu_fallback
-  #examples: |
-    #- [Jurema](nome_usuario)
+    - [Jurema](nome_usuario)
 - synonym: bomdia
   examples: |
     - b dia
@@ -2901,6 +2889,7 @@ nlu:
     - boua noite
 - synonym: oi
   examples: |
+    - oi
     - oii
     - oiii
     - olá
@@ -2908,6 +2897,7 @@ nlu:
     - ei
 - synonym: transferencia
   examples: |
+    - transferencia
     - transferência
     - transferensia
     - mudança
@@ -2920,6 +2910,7 @@ nlu:
     - troco
 - synonym: representante
   examples: |
+    - representante
     - representantes
     - representante de turma
     - representante da turma
@@ -2942,6 +2933,7 @@ nlu:
     - líderes da turma
 - synonym: ead
   examples: |
+    - ead
     - estudo a distancia
     - ensido a distancia
     - apnp
@@ -2952,12 +2944,14 @@ nlu:
     - distancia
 - synonym: presencial
   examples: |
+    - presencial
     - estudo presencial
     - ensino presencial
     - curso presencial
     - modalidade presencial
 - synonym: turno
   examples: |
+    - turno
     - vespertino
     - matutino
     - noite
@@ -2967,6 +2961,7 @@ nlu:
     - tarde
 - synonym: prova
   examples: |
+    - prova
     - provas
     - avaliação
     - avaliacao
@@ -3017,6 +3012,7 @@ nlu:
     - PPD
 - synonym: pontuacao
   examples: |
+    - pontuacao
     - pontuação
     - pontuasao
     - pontuacaum
@@ -3045,6 +3041,7 @@ nlu:
     - reprovada
 - synonym: disciplinas
   examples: |
+    - disciplinas
     - disciplina
     - materias
     - materia
@@ -3086,6 +3083,7 @@ nlu:
     - bio
 - synonym: dependencia
   examples: |
+    - dependencia
     - dependência
     - dp
     - dep
@@ -3098,6 +3096,7 @@ nlu:
   examples: |
     - discente
     - discentes
+    - aluno
     - alunos
     - estudante
     - estudantes
@@ -3108,14 +3107,17 @@ nlu:
     - renovação de matricula
     - renovasao de matricula
     - revasaum de matricula
+    - rematrícula
     - rematricula
     - re-matricula
     - re matricula
 - synonym: regime domiciliar
   examples: |
+    - regime domiciliar
     - atendimento domiciliar
 - synonym: rod
   examples: |
+    - rod
     - Regulamento da Organização Didática
     - regulamento da organizacao didatica
     - rod2020
@@ -3125,6 +3127,7 @@ nlu:
     - normas e regulamento
 - synonym: online
   examples: |
+    - online
     - pelo site
     - no site
     - no site do ifes
@@ -3139,6 +3142,7 @@ nlu:
   examples: |
     - faso
     - fasso
+    - faço
     - faco
     - fazer
     - faser
@@ -3147,4 +3151,5 @@ nlu:
     - faz
 - synonym: campus
   examples: |
+    - campus
     - campi

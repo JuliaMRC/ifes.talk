@@ -4,23 +4,6 @@ version: "2.0"
 
 stories:
 
-- story: fora do escopo
-  steps:
-  - user: |
-      oii
-    intent: cumprimento
-  - action: utter_cumprimentar
-  - action: nome_form
-  - slot_was_set:
-    - primeiro_nome: Joana
-  - action: utter_cumprimentar_usuario_nome
-  - user: |
-      quero pedir uma pizza
-    intent: fora_do_escopo
-  - action: utter_fora_do_escopo
-  - action: action_listen
-
-
 - story: nlu fallback
   steps:
   - user: |
@@ -32,7 +15,7 @@ stories:
     - primeiro_nome: Pedro
   - action: utter_cumprimentar_usuario_nome
   - user: |
-      posso escolher o meu professor?
+      queria testar uma coisa
     intent: nlu_fallback
   - action: utter_nao_entendi
   - action: action_listen
@@ -82,12 +65,7 @@ stories:
       nao
     intent: negar
   - action: utter_ok
-  - action: utter_continuar_conversa
-  - user: |
-      tchau
-    intent: despedir
   - action: utter_despedir
-  - action: action_listen
 
 
 - story: cumprimentar, perguntar como está e despedir - usuario triste
@@ -96,6 +74,10 @@ stories:
       olá!
     intent: cumprimento
   - action: utter_cumprimentar
+  - action: nome_form
+  - slot_was_set:
+    - primeiro_nome: Camila
+  - action: utter_cumprimentar_usuario_nome
   - user: |
       como vc esta?
     intent: como_esta
@@ -124,8 +106,12 @@ stories:
       oi
     intent: cumprimento
   - action: utter_cumprimentar
+  - action: nome_form
+  - slot_was_set:
+    - primeiro_nome: Vitor
+  - action: utter_cumprimentar_usuario_nome
   - user: |
-      O que é o ROD?
+      para que serve o rod?
     intent: rod_geral
   - action: utter_rod_geral
   - action: utter_continuar_conversa
@@ -137,6 +123,10 @@ stories:
       oi
     intent: cumprimento
   - action: utter_cumprimentar
+  - action: nome_form
+  - slot_was_set:
+    - primeiro_nome: Julia
+  - action: utter_cumprimentar_usuario_nome
   - user: |
       O que é o ROD?
     intent: rod_geral
@@ -154,6 +144,10 @@ stories:
       olá!
     intent: cumprimento
   - action: utter_cumprimentar
+  - action: nome_form
+  - slot_was_set:
+    - primeiro_nome: Luis
+  - action: utter_cumprimentar_usuario_nome
   - user: |
       quero me transferir para o ifes
     intent: transferencia_de_outra_escola
@@ -170,21 +164,12 @@ stories:
   - action: utter_continuar_conversa
 
 
-- story: Quando pode mudar de campus, mudança de campus e turno geral #006 #007 #008 #009
+- story: Mudança de campus e turno geral #006 #007 #008 #009
   steps:
   - user: |
-      boa noite
-    intent: cumprimento
-  - action: utter_cumprimentar
-  - user: |
       quero ir para outro campus
-    intent: mudanca_campus_geral
-  - action: utter_mudanca_campus_geral
-  - action: utter_continuar_conversa
-  - user: |
-      quando posso pedir a mudança de campus?
-    intent: mudanca_campus_quando
-  - action: utter_mudanca_campus_quando
+    intent: mudanca_campus
+  - action: utter_mudanca_campus
   - action: utter_continuar_conversa
   - user: |
       Posso mudar de turno?
@@ -211,10 +196,6 @@ stories:
 - story: Os prazos de entrega das avaliações e conteúdos das avaliações escolares #011 #012
   steps:
   - user: |
-      boa tarde
-    intent: cumprimento
-  - action: utter_cumprimentar
-  - user: |
       Qual o prazo máximo para um professor corrigir e entregar as provas?
     intent: prazos_entregas_avaliacoes
   - action: utter_prazos_entregas_avaliacoes
@@ -229,10 +210,6 @@ stories:
 - story: Recuperação de avaliação #016
   steps:
   - user: |
-      ei
-    intent: cumprimento
-  - action: utter_cumprimentar
-  - user: |
       como funciona a recuperação
     intent: recuperacao
   - action: utter_recuperacao
@@ -245,6 +222,10 @@ stories:
       ei
     intent: cumprimento
   - action: utter_cumprimentar
+  - action: nome_form
+  - slot_was_set:
+    - primeiro_nome: Pamela
+  - action: utter_cumprimentar_usuario_nome
   - user: |
       como funciona a dependência?
     intent: dependencia_geral
