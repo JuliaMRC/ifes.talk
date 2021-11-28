@@ -1,0 +1,15 @@
+version: "2.0"
+stories:
+- story: cumprimentar e despedir (.\tests\test_stories.yml)
+  steps:
+  - intent: cumprimento
+  - action: utter_cumprimentar
+  - action: nome_form
+  - action: action_listen  # predicted: utter_cumprimentar_usuario_nome
+  - intent: informar_nome  # predicted: nlu_fallback: João
+    entities: []
+  - slot_was_set:
+    - primeiro_nome: João
+  - action: utter_cumprimentar_usuario_nome  # predicted: utter_nao_entendi
+  - intent: despedir
+  - action: utter_despedir

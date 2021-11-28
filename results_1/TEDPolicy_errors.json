@@ -1,0 +1,15 @@
+[
+  {
+    "text": "João",
+    "entities": [
+      {
+        "text": "João",
+        "start": 0,
+        "end": 4,
+        "entity": "nome_usuario",
+        "value": "João"
+      }
+    ],
+    "predicted_entities": []
+  }
+]

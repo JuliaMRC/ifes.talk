@@ -1,43 +1,257 @@
 #### This file contains tests to evaluate that your bot behaves as expected.
 #### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+version: "2.0"
 
 stories:
-- story: como estou 2
+
+- story: fora do escopo
   steps:
   - user: |
-      vc ta bem?
+      oii
+    intent: cumprimento
+  - action: utter_cumprimentar
+  - action: nome_form
+  - slot_was_set:
+    - primeiro_nome: Joana
+  - action: utter_cumprimentar_usuario_nome
+  - user: |
+      quero pedir uma pizza
+    intent: fora_do_escopo
+  - action: utter_fora_do_escopo
+  - action: action_listen
+
+
+- story: nlu fallback
+  steps:
+  - user: |
+      oii
+    intent: cumprimento
+  - action: utter_cumprimentar
+  - action: nome_form
+  - slot_was_set:
+    - primeiro_nome: Pedro
+  - action: utter_cumprimentar_usuario_nome
+  - user: |
+      posso escolher o meu professor?
+    intent: nlu_fallback
+  - action: utter_nao_entendi
+  - action: action_listen
+
+
+- story: cumprimentar e despedir
+  steps:
+  - user: |
+      oii
+    intent: cumprimento
+  - action: utter_cumprimentar
+  - action: nome_form
+  - slot_was_set:
+    - primeiro_nome: Vitor
+  - action: utter_cumprimentar_usuario_nome
+  - user: |
+      tenho que ir embora
+    intent: despedir
+  - action: utter_despedir
+  - action: action_listen
+
+
+- story: cumprimentar, perguntar como está e despedir - usuario feliz
+  steps:
+  - user: |
+      olá!
+    intent: cumprimento
+  - action: utter_cumprimentar
+  - action: nome_form
+  - slot_was_set:
+    - primeiro_nome: João
+  - action: utter_cumprimentar_usuario_nome
+  - user: |
+      como vc esta?
     intent: como_esta
   - action: utter_como_estou
   - user: |
-      mal
-    intent: esta_triste
-  - action: utter_fica_feliz
-  - action: action_listen
-- story: despedida
-  steps:
+      estou bem tbm
+    intent: esta_feliz
+  - action: utter_usuario_esta_feliz
+  - user: |
+      obrigado
+    intent: agradecer
+  - action: utter_de_nada
+  - action: utter_continuar_conversa
+  - user: |
+      nao
+    intent: negar
+  - action: utter_ok
+  - action: utter_continuar_conversa
   - user: |
       tchau
     intent: despedir
   - action: utter_despedir
-- story: sou um bot
+  - action: action_listen
+
+
+- story: cumprimentar, perguntar como está e despedir - usuario triste
   steps:
   - user: |
-      vc é um bot??
-    intent: meu_objetivo
-  - action: utter_meu_objetivo
+      olá!
+    intent: cumprimento
+  - action: utter_cumprimentar
+  - user: |
+      como vc esta?
+    intent: como_esta
+  - action: utter_como_estou
+  - user: |
+      To mal
+    intent: esta_triste
+  - action: utter_fica_feliz
+  - user: |
+      obrigado
+    intent: agradecer
+  - action: utter_de_nada
+  - action: utter_continuar_conversa
+  - user: |
+      tchau
+    intent: despedir
+  - action: utter_despedir
+  - action: action_listen
+
 
 # stories do ROD
+
+- story: O que é o ROD - situação comum #046 
+  steps:
+  - user: |
+      oi
+    intent: cumprimento
+  - action: utter_cumprimentar
+  - user: |
+      O que é o ROD?
+    intent: rod_geral
+  - action: utter_rod_geral
+  - action: utter_continuar_conversa
+
+
+- story: O que é o ROD - situação incomum #046 
+  steps:
+  - user: |
+      oi
+    intent: cumprimento
+  - action: utter_cumprimentar
+  - user: |
+      O que é o ROD?
+    intent: rod_geral
+  - action: utter_rod_geral
+  - action: utter_continuar_conversa
+  - user: |
+      Me conta uma piada
+    intent: saber_piada
+  - action: utter_piadas
+
+
 - story: transferencia de outra instituição para o ifes #001
   steps:
+  - user: |
+      olá!
+    intent: cumprimento
+  - action: utter_cumprimentar
   - user: |
       quero me transferir para o ifes
     intent: transferencia_de_outra_escola
   - action: utter_transferencia_de_outra_escola
   - action: utter_continuar_conversa
+
+
 - story: transferencia do ifes para outra escola #002
   steps:
   - user: |
       quero sair do ifes
     intent: transferencia_para_outra_escola
   - action: utter_transferencia_para_outra_escola
+  - action: utter_continuar_conversa
+
+
+- story: Quando pode mudar de campus, mudança de campus e turno geral #006 #007 #008 #009
+  steps:
+  - user: |
+      boa noite
+    intent: cumprimento
+  - action: utter_cumprimentar
+  - user: |
+      quero ir para outro campus
+    intent: mudanca_campus_geral
+  - action: utter_mudanca_campus_geral
+  - action: utter_continuar_conversa
+  - user: |
+      quando posso pedir a mudança de campus?
+    intent: mudanca_campus_quando
+  - action: utter_mudanca_campus_quando
+  - action: utter_continuar_conversa
+  - user: |
+      Posso mudar de turno?
+    intent: mudanca_turno
+  - action: utter_mudanca_turno
+  - action: utter_continuar_conversa
+  - user: |
+      quero mudar de turma
+    intent: mudanca_turma 
+  - action: utter_mudanca_turma
+  - action: utter_continuar_conversa
+  - user: |
+      obrigado
+    intent: agradecer
+  - action: utter_de_nada
+  - action: utter_continuar_conversa
+  - user: |
+      tchau
+    intent: despedir
+  - action: utter_despedir
+  - action: action_listen
+
+
+- story: Os prazos de entrega das avaliações e conteúdos das avaliações escolares #011 #012
+  steps:
+  - user: |
+      boa tarde
+    intent: cumprimento
+  - action: utter_cumprimentar
+  - user: |
+      Qual o prazo máximo para um professor corrigir e entregar as provas?
+    intent: prazos_entregas_avaliacoes
+  - action: utter_prazos_entregas_avaliacoes
+  - action: utter_continuar_conversa
+  - user: |
+      o que é cobrado nas provas?
+    intent: conteudos_avaliacoes
+  - action: utter_conteudos_avaliacoes
+  - action: utter_continuar_conversa
+
+
+- story: Recuperação de avaliação #016
+  steps:
+  - user: |
+      ei
+    intent: cumprimento
+  - action: utter_cumprimentar
+  - user: |
+      como funciona a recuperação
+    intent: recuperacao
+  - action: utter_recuperacao
+  - action: utter_continuar_conversa
+
+  
+- story: O que é dependencia e máximo de matérias que pode fazer na dependencia #027 #022
+  steps:
+  - user: |
+      ei
+    intent: cumprimento
+  - action: utter_cumprimentar
+  - user: |
+      como funciona a dependência?
+    intent: dependencia_geral
+  - action: utter_dependencia_geral
+  - action: utter_continuar_conversa
+  - user: |
+      máximo de disciplinas em que posso reprovar
+    intent: maximo_materias_dependencia
+  - action: utter_maximo_materias_dependencia
   - action: utter_continuar_conversa

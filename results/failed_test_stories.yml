@@ -1,0 +1,124 @@
+version: "2.0"
+stories:
+- story: Quando pode mudar de campus, mudança de campus e turno geral (.\tests\test_stories.yml)
+  steps:
+  - intent: cumprimento
+  - action: utter_cumprimentar
+  - action: action_listen  # predicted: nome_form
+  - intent: mudanca_campus_geral  # predicted: mudanca_campus: quero ir para outro campus
+  - action: utter_mudanca_campus_geral  # predicted: utter_nao_entendi
+  - action: utter_continuar_conversa
+  - intent: mudanca_campus_quando  # predicted: mudanca_campus: quando posso pedir a mudança de campus?
+  - action: utter_mudanca_campus_quando  # predicted: utter_nao_entendi
+  - action: utter_continuar_conversa
+  - intent: mudanca_turno
+  - action: utter_mudanca_turno
+  - action: utter_continuar_conversa
+  - intent: mudanca_turma
+  - action: utter_mudanca_turma
+  - action: utter_continuar_conversa
+  - intent: agradecer
+  - action: utter_de_nada
+  - action: utter_continuar_conversa
+  - intent: despedir
+  - action: utter_despedir
+- story: Os prazos de entrega das avaliações e conteúdos das avaliações escolares (.\tests\test_stories.yml)
+  steps:
+  - intent: cumprimento
+  - action: utter_cumprimentar
+  - action: action_listen  # predicted: nome_form
+  - intent: prazos_entregas_avaliacoes
+  - action: utter_prazos_entregas_avaliacoes
+  - action: utter_continuar_conversa
+  - intent: conteudos_avaliacoes
+  - action: utter_conteudos_avaliacoes
+  - action: utter_continuar_conversa
+- story: Recuperação de avaliação (.\tests\test_stories.yml)
+  steps:
+  - intent: cumprimento
+  - action: utter_cumprimentar
+  - action: action_listen  # predicted: nome_form
+  - intent: recuperacao
+  - action: utter_recuperacao
+  - action: utter_continuar_conversa
+- story: O que é dependencia e máximo de matérias que pode fazer na dependencia (.\tests\test_stories.yml)
+  steps:
+  - intent: cumprimento
+  - action: utter_cumprimentar
+  - action: action_listen  # predicted: nome_form
+  - intent: dependencia_geral
+  - action: utter_dependencia_geral
+  - action: utter_continuar_conversa
+  - intent: maximo_materias_dependencia
+  - action: utter_maximo_materias_dependencia
+  - action: utter_continuar_conversa
+- story: nlu fallback (.\tests\test_stories.yml)
+  steps:
+  - intent: cumprimento
+  - action: utter_cumprimentar
+  - action: nome_form
+  - slot_was_set:
+    - primeiro_nome: Pedro
+  - action: utter_cumprimentar_usuario_nome
+  - intent: nlu_fallback  # predicted: servidor_ifes: posso escolher o meu professor?
+  - action: utter_nao_entendi
+- story: cumprimentar, perguntar como está e despedir - usuario feliz (.\tests\test_stories.yml)
+  steps:
+  - intent: cumprimento
+  - action: utter_cumprimentar
+  - action: nome_form
+  - slot_was_set:
+    - primeiro_nome: João
+  - action: utter_cumprimentar_usuario_nome
+  - intent: como_esta
+  - action: utter_como_estou  # predicted: utter_nao_entendi
+  - intent: esta_feliz
+  - action: utter_usuario_esta_feliz  # predicted: utter_nao_entendi
+  - intent: agradecer
+  - action: utter_de_nada  # predicted: utter_nao_entendi
+  - action: utter_continuar_conversa
+  - intent: negar
+  - action: utter_ok  # predicted: utter_nao_entendi
+  - action: utter_continuar_conversa  # predicted: utter_cumprimentar_usuario_nome
+  - intent: despedir
+  - action: utter_despedir
+- story: cumprimentar, perguntar como está e despedir - usuario triste (.\tests\test_stories.yml)
+  steps:
+  - intent: cumprimento
+  - action: utter_cumprimentar
+  - action: action_listen  # predicted: nome_form
+  - intent: como_esta
+  - action: utter_como_estou
+  - intent: esta_triste
+  - action: utter_fica_feliz
+  - intent: agradecer
+  - action: utter_de_nada
+  - action: utter_continuar_conversa
+  - intent: despedir
+  - action: utter_despedir
+- story: O que é o ROD - situação comum (.\tests\test_stories.yml)
+  steps:
+  - intent: cumprimento
+  - action: utter_cumprimentar
+  - action: action_listen  # predicted: nome_form
+  - intent: rod_geral
+  - action: utter_rod_geral
+  - action: utter_continuar_conversa
+- story: O que é o ROD - situação incomum (.\tests\test_stories.yml)
+  steps:
+  - intent: cumprimento
+  - action: utter_cumprimentar
+  - action: action_listen  # predicted: nome_form
+  - intent: rod_geral
+  - action: utter_rod_geral
+  - action: utter_continuar_conversa
+  - intent: saber_piada
+  - action: utter_piadas
+- story: transferencia de outra instituição para o ifes (.\tests\test_stories.yml)
+  steps:
+  - intent: cumprimento
+  - action: utter_cumprimentar
+  - action: action_listen  # predicted: nome_form
+  - intent: transferencia_de_outra_escola
+  - action: utter_transferencia_de_outra_escola
+  - action: utter_continuar_conversa

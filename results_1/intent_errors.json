@@ -1,0 +1,162 @@
+[
+  {
+    "text": "Tudo bem?",
+    "intent": "como_esta",
+    "intent_prediction": {
+      "name": "esta_feliz",
+      "confidence": 0.5707672238349915
+    }
+  },
+  {
+    "text": "trancamento da minha matrícula",
+    "intent": "trancamento_matricula_sobre",
+    "intent_prediction": {
+      "name": "trancamento_matricula",
+      "confidence": 0.6739251017570496
+    }
+  },
+  {
+    "text": "sobre regime domiciliar",
+    "intent": "regime_domiciliar_sobre",
+    "intent_prediction": {
+      "name": "regime_domiciliar",
+      "confidence": 0.5757275819778442
+    }
+  },
+  {
+    "text": "1",
+    "intent": "transferencias",
+    "intent_prediction": {
+      "name": "dependencia",
+      "confidence": 0.16137899458408356
+    }
+  },
+  {
+    "text": "2",
+    "intent": "representantes",
+    "intent_prediction": {
+      "name": "dependencia",
+      "confidence": 0.16137899458408356
+    }
+  },
+  {
+    "text": "3",
+    "intent": "avaliacoes",
+    "intent_prediction": {
+      "name": "dependencia",
+      "confidence": 0.16137899458408356
+    }
+  },
+  {
+    "text": "4",
+    "intent": "pontuacoes",
+    "intent_prediction": {
+      "name": "dependencia",
+      "confidence": 0.16137899458408356
+    }
+  },
+  {
+    "text": "6",
+    "intent": "revisao_notas",
+    "intent_prediction": {
+      "name": "dependencia",
+      "confidence": 0.16137899458408356
+    }
+  },
+  {
+    "text": "7",
+    "intent": "dias_letivos",
+    "intent_prediction": {
+      "name": "dependencia",
+      "confidence": 0.16137899458408356
+    }
+  },
+  {
+    "text": "8",
+    "intent": "matricula",
+    "intent_prediction": {
+      "name": "dependencia",
+      "confidence": 0.16137899458408356
+    }
+  },
+  {
+    "text": "quero trancar minha matrícula",
+    "intent": "trancamento_matricula",
+    "intent_prediction": {
+      "name": "trancamento_matricula_sobre",
+      "confidence": 0.7850770354270935
+    }
+  },
+  {
+    "text": "atendimento domiciliar",
+    "intent": "regime_domiciliar",
+    "intent_prediction": {
+      "name": "regime_domiciliar_sobre",
+      "confidence": 0.6888032555580139
+    }
+  },
+  {
+    "text": "9",
+    "intent": "regime_domiciliar",
+    "intent_prediction": {
+      "name": "dependencia",
+      "confidence": 0.16137899458408356
+    }
+  },
+  {
+    "text": "10",
+    "intent": "plano_ensino",
+    "intent_prediction": {
+      "name": "dependencia",
+      "confidence": 0.16137899458408356
+    }
+  },
+  {
+    "text": "11",
+    "intent": "calendario_academico",
+    "intent_prediction": {
+      "name": "dependencia",
+      "confidence": 0.16137899458408356
+    }
+  },
+  {
+    "text": "12",
+    "intent": "segunda_chance_avaliacao",
+    "intent_prediction": {
+      "name": "dependencia",
+      "confidence": 0.16137899458408356
+    }
+  },
+  {
+    "text": "13",
+    "intent": "reuniao_pedagogica",
+    "intent_prediction": {
+      "name": "dependencia",
+      "confidence": 0.16137899458408356
+    }
+  },
+  {
+    "text": "14",
+    "intent": "rod",
+    "intent_prediction": {
+      "name": "dependencia",
+      "confidence": 0.16137899458408356
+    }
+  },
+  {
+    "text": "15",
+    "intent": "SC_geral",
+    "intent_prediction": {
+      "name": "dependencia",
+      "confidence": 0.16137899458408356
+    }
+  },
+  {
+    "text": "Jurema",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "revisao_notas_finais",
+      "confidence": 0.01891320012509823
+    }
+  }
+]

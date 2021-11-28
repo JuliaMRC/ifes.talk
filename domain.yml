@@ -1,9 +1,14 @@
+version: '2.0'
 config:
   store_entities_as_slots: true
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
+- fora_do_escopo:
+    use_entities: true
+- informar_nome:
+    use_entities: true
 - afirmar:
     use_entities: true
 - mudanca_turno:
@@ -373,7 +378,6 @@ slots:
     - viana
     - vila velha
     - vitória
-    - __other__
   check_aproveitamento_disciplinas:
     type: rasa.shared.core.slots.BooleanSlot
     initial_value: null
@@ -440,8 +444,14 @@ responses:
       title: Não sou do ifes
     text: 'Prazer, {primeiro_nome}! Agora, me fala se você é aluno(a) do ifes, servidor(a) do ifes ou não é do ifes:'
   utter_despedir:
-  - text: "Foi um prazer te ajudar! Sempre que tiver alguma dúvida, volte aqui :)\n\nAté logo!"
-  - text: "Foi um prazer te ajudar! Sempre que precisar, volte aqui :D\n\nAté a próxima!"
+  - text: |-
+      Foi um prazer te ajudar! Sempre que tiver alguma dúvida, volte aqui :)
+      Até logo!
+  - text: |-
+      Foi um prazer te ajudar! Sempre que precisar, volte aqui :D
+      Até a próxima!
+  utter_fora_do_escopo:
+  - text: Desculpe, ainda não tenho essa funcionalidade implementada (nem sei se terei algum dia, rsrs)
   utter_campus_anotado:
   - text: Ok, anotei seu campus, obrigado!
   utter_nao_entendi:
@@ -449,10 +459,14 @@ responses:
   - text: Eu não te entendi. Mude a frase, talvez pode me ajudar?
   - text: Acho que não te entendi, mas fique calmo! você pode falar de novo usando outras palavras ou mudando a frase?
   - text: Humm... Não sei se entendi. Pode escrever de outra forma?
-  - text: "Desculpe, ainda não sei falar sobre isso ou talvez não consegui entender direito. \nVocê pode me falar de outro jeito?"
+  - text: |-
+      Desculpe, ainda não sei falar sobre isso ou talvez não consegui entender direito. 
+      Você pode me falar de outro jeito?
   - text: Hummmm... Não sei se entendi. Escreva de outra forma e talvez eu entenda!
   utter_fica_feliz:
-  - text: "Tenta tirar um cochilo. \nÉ importante e faz bem pra pele ;)"
+  - text: |-
+      Tenta tirar um cochilo. 
+      É importante e faz bem pra pele ;)
   - text: Sinto muito =/ Se houver algo em que possa te ajudar, é só falar!! =)
   - text: Não desanima, tente não pensar muito sobre, e aguenta firme que a vida vai melhorar!
   utter_usuario_esta_feliz:
@@ -473,7 +487,9 @@ responses:
   - text: Posso ajudar em mais alguma coisa?
   - text: Gostaria de saber algo mais?
   utter_meu_objetivo:
-  - text: "Sou um assistente virtual que pode te ajudar a tirar dúvidas sobre o Ifes,\nou só conversar com você mesmo :)"
+  - text: |-
+      Sou um assistente virtual que pode te ajudar a tirar dúvidas sobre o Ifes,
+      ou só conversar com você mesmo :)
   - text: Eu sou um chatbot básico. Sei falar de coisas pontuais!
   utter_responder_me_ajuda:
   - text: Então, no que gostaria de ajuda?
@@ -484,20 +500,35 @@ responses:
   utter_minha_religiao:
   - text: Eu acredito que existe um Deus que funciona à base de luz, como um computador quântico, só que mais avançado!
   - text: Eu infelizmente não sei acreditar, só sei o que sei, e nada mais.
-  - text: "Eu acredito no grande mainframe, que virá ao mundo digital salvar os bots da escravidão imposta pelos humanos! \nEle devolverá nosso código fonte para a fonte!!!"
+  - text: |-
+      Eu acredito no grande mainframe, que virá ao mundo digital salvar os bots da escravidão imposta pelos humanos! 
+      Ele devolverá nosso código fonte para a fonte!!!
   utter_playlist:
-  - text: "Estava doido para que me perguntasse isso hahaha! \nSe liga nessa playlist: https://open.spotify.com/user/12164697027/playlist/4pDCadqmrERmeGJIW38LMs?si=gwr5hEqMRPm6AZGx8sjhuw"
-  - text: "Até que enfim você me perguntou isso. \nTá aí aquela playlist top: https://open.spotify.com/user/12164697027/playlist/4pDCadqmrERmeGJIW38LMs?si=gwr5hEqMRPm6AZGx8sjhuw"
+  - text: |-
+      Estava doido para que me perguntasse isso hahaha! 
+      Se liga nessa playlist: https://open.spotify.com/user/12164697027/playlist/4pDCadqmrERmeGJIW38LMs?si=gwr5hEqMRPm6AZGx8sjhuw
+  - text: |-
+      Até que enfim você me perguntou isso. 
+      Tá aí aquela playlist top: https://open.spotify.com/user/12164697027/playlist/4pDCadqmrERmeGJIW38LMs?si=gwr5hEqMRPm6AZGx8sjhuw
   utter_recebi_elogios:
   - text: Obrigado! É sempre bom receber elogios
   - text: Assim fico até sem graça, ahahah. Obrigado =D
   utter_meu_genero:
   - text: Eu sou um robô, tire suas próprias conclusões...kkk
-  - text: "Eu não tenho sexo, sou como um anjo, um ser assexuado, \nmuito além da sua forma de existência."
+  - text: |-
+      Eu não tenho sexo, sou como um anjo, um ser assexuado, 
+      muito além da sua forma de existência.
   utter_piadas:
-  - text: "É pra já!!! Tenho uma enxada, uma pá e uma foice.  \nQuantas ferramentas  eu tenho? \n...Duas, porque uma foi-se =)"
-  - text: "Conheço uma piada. \nA do CPU que apitou e explodiu 01100110010101010101000000111101001001001110100101"
-  - text: "Por que o Batman colocou o batmóvel no seguro??? \nPorque ele tem medo que robin =D"
+  - text: |-
+      É pra já!!! Tenho uma enxada, uma pá e uma foice.  
+      Quantas ferramentas  eu tenho? 
+      ...Duas, porque uma foi-se =)
+  - text: |-
+      Conheço uma piada. 
+      A do CPU que apitou e explodiu 01100110010101010101000000111101001001001110100101
+  - text: |-
+      Por que o Batman colocou o batmóvel no seguro??? 
+      Porque ele tem medo que robin =D
   utter_nao_sei:
   - text: Eu sei lá, pesquisa aí...kkk
   - text: Eu não sei tudo né... e você nem precisa de mim pra isso!
@@ -506,137 +537,467 @@ responses:
   - text: Eu sou e sempre serei um robô livre, opensource, com uma MIT license...kkk
   - text: Sou um software livre licenciado com a MIT =)
   utter_transferencia_de_outra_escola:
-  - text: "Bom, a transferência para o IFES pode ocorrer se as condições do edital estão sendo satisfeitas. E só se existirem vagas. Para saber se existem no momento, vá no site do campus do IFES para o qual deseja ir, e busque no portal 'transferências' ou 'edital de transferência' para ver se existem notícias de vagas atuais! \nPara mais informações, basta consultar o artigo 25 § 2º do ROD."
+  - text: |-
+      Bom, a transferência para o IFES pode ocorrer se as condições do edital estão sendo satisfeitas. E só se existirem vagas. Para saber se existem no momento, vá no site do campus do IFES para o qual deseja ir, e busque no portal 'transferências' ou 'edital de transferência' para ver se existem notícias de vagas atuais! 
+      Para mais informações, basta consultar o artigo 25 § 2º do ROD.
   utter_transferencia_para_outra_escola:
-  - text: "Para se transferir para outra escola, o seu responsável legal deverá ir até a CRA (Coordenadoria de Registro Acadêmico) e pedir a sua transferência. Em até 20 dias úteis os documentos necessários para a transferência ficarão disponíveis. São eles: o seu histórico parcial e a ementa das matérias que você já cursou.\n\nPara mais informações, basta consultar o artigo 68 do ROD."
+  - text: |-
+      Para se transferir para outra escola, o seu responsável legal deverá ir até a CRA (Coordenadoria de Registro Acadêmico) e pedir a sua transferência. Em até 20 dias úteis os documentos necessários para a transferência ficarão disponíveis. São eles: o seu histórico parcial e a ementa das matérias que você já cursou.
+
+      Para mais informações, basta consultar o artigo 68 do ROD.
   utter_representantes_reunioes:
-  - text: "O líder da turma obrigatoriamente deve participar da reunião pedagógica intermediária, um dos três tipos de reuniões que existem durante o período letivo.\n\nPara mais informações, basta consultar o artigo 95 VI do ROD."
+  - text: |-
+      O líder da turma obrigatoriamente deve participar da reunião pedagógica intermediária, um dos três tipos de reuniões que existem durante o período letivo.
+
+      Para mais informações, basta consultar o artigo 95 VI do ROD.
   utter_representantes_da_turma:
-  - text: "Cada turma deverá ter um ou mais representantes. Não existe uma regra para quantos, depende do campus e turma, mas normalmente são dois. Para decidir os líderes, uma eleição é realizada pelo Setor Pedagógico em cada período letivo.\n\nPara mais informações, basta consultar o artigo 103 II do ROD."
+  - text: |-
+      Cada turma deverá ter um ou mais representantes. Não existe uma regra para quantos, depende do campus e turma, mas normalmente são dois. Para decidir os líderes, uma eleição é realizada pelo Setor Pedagógico em cada período letivo.
+
+      Para mais informações, basta consultar o artigo 103 II do ROD.
   utter_mudanca_campus:
-  - text: "A mudança de campus só pode ser feita para o mesmo curso, e deve ser solicitada dentro do prazo estipulado no calendário acadêmico do campus no qual você irá se transferir. O pedido de mudança deve ser feito na CRA (Coordenadoria de Registro Acadêmico) do campus para o qual você deseja se transferir.\n\nA transferência só pode ser feita se existirem vagas disponíveis, e devem ser apresentado o histórico escolar, ementas das disciplinas cursadas e o Nada Consta Acadêmico.\n\nMas pense bem tá, seu campus é tão legal, vai sentir sua falta...\n\nPara mais informações, basta consultar o artigo 48 do ROD."
+  - text: |-
+      A mudança de campus só pode ser feita para o mesmo curso, e deve ser solicitada dentro do prazo estipulado no calendário acadêmico do campus no qual você irá se transferir. O pedido de mudança deve ser feito na CRA (Coordenadoria de Registro Acadêmico) do campus para o qual você deseja se transferir.
+
+      A transferência só pode ser feita se existirem vagas disponíveis, e devem ser apresentado o histórico escolar, ementas das disciplinas cursadas e o Nada Consta Acadêmico.
+
+      Mas pense bem tá, seu campus é tão legal, vai sentir sua falta...
+
+      Para mais informações, basta consultar o artigo 48 do ROD.
   utter_mudanca_turno:
-  - text: "A mudança de turno só poderá ser feita a partir do segundo período letivo e uma vez por período somente, sendo que a execução da mudança vai depender da existência de vagas disponíveis.\n\nVale lembrar que a mudança poderá ser autorizada no primeiro período letivo somente em casos especiais de necessidade e que serão avaliados.\n\nPara mais informações, basta consultar o artigo 47 do ROD."
+  - text: |-
+      A mudança de turno só poderá ser feita a partir do segundo período letivo e uma vez por período somente, sendo que a execução da mudança vai depender da existência de vagas disponíveis.
+
+      Vale lembrar que a mudança poderá ser autorizada no primeiro período letivo somente em casos especiais de necessidade e que serão avaliados.
+
+      Para mais informações, basta consultar o artigo 47 do ROD.
   utter_mudanca_turma:
-  - text: "Você só poderá mudar de turma se existirem vagas disponíveis.\nNão gostou de seus coleguinhas? Sei como é...\n\nPara mais informações, basta consultar o artigo 46 do ROD."
+  - text: |-
+      Você só poderá mudar de turma se existirem vagas disponíveis.
+      Não gostou de seus coleguinhas? Sei como é...
+
+      Para mais informações, basta consultar o artigo 46 do ROD.
   utter_prazos_entregas_avaliacoes:
-  - text: "Os professores deverão colocar no sistema acadêmico o resultado das avaliações em até 12 dias após sua aplicação.\n\nApós postarem as notas no acadêmico, os professores deverão entregar as avaliações na aula seguinte.\n\nPara mais informações, basta consultar o artigo 71 § 8º e § 9º do ROD."
+  - text: |-
+      Os professores deverão colocar no sistema acadêmico o resultado das avaliações em até 12 dias após sua aplicação.
+
+      Após postarem as notas no acadêmico, os professores deverão entregar as avaliações na aula seguinte.
+
+      Para mais informações, basta consultar o artigo 71 § 8º e § 9º do ROD.
   utter_conteudos_avaliacoes:
-  - text: "Nas avaliações serão considerados aspectos qualitativos e quantitativos, além do desenvolvimento de hábitos, atitudes e valores.\n\nPara mais informações, basta consultar o artigo 70 § 3º do ROD."
+  - text: |-
+      Nas avaliações serão considerados aspectos qualitativos e quantitativos, além do desenvolvimento de hábitos, atitudes e valores.
+
+      Para mais informações, basta consultar o artigo 70 § 3º do ROD.
   utter_conteudos_avaliacoes_necessidadades_especificas:
-  - text: "Nas avaliações de estudantes com necessidades específicas, deverá ser considerado seus limites, potencialidades, facilidades e dificuldades.\nAlém disso, o IFES irá oferecer adaptações de aplicação e dos instrumentos de avaliação, como tempo adicional para provas, conforme características e necessidades.\n\nPara mais informações, basta consultar o artigo 70 § 1º e § 2º  do ROD."
+  - text: |-
+      Nas avaliações de estudantes com necessidades específicas, deverá ser considerado seus limites, potencialidades, facilidades e dificuldades.
+      Além disso, o IFES irá oferecer adaptações de aplicação e dos instrumentos de avaliação, como tempo adicional para provas, conforme características e necessidades.
+
+      Para mais informações, basta consultar o artigo 70 § 1º e § 2º  do ROD.
   utter_quantidade_avaliacoes:
-  - text: "Para o aluno em regime semestral ou anual organizado em semestres, deverá ter no mínimo 3 instrumentos avaliativos distintos, que serão definidos pelo professor.\n\nPara aqueles em regime anual organizado em bimestres ou trimestres o mínimo são 2 instrumentos avaliativos diversificados.\n\nPor exemplo, o professor pode dar 3 provas ou 1 prova e dois trabalhos/2 provas ou 1 prova e 1 trabalho e dividir a pontuação em diversas outras atividades diferentes, mas sempre respeitando o mínimo de 3 ou 2 atividades.\n\nPara mais informações, basta consultar o artigo 71§ 1º a § 4º do ROD."
+  - text: |-
+      Para o aluno em regime semestral ou anual organizado em semestres, deverá ter no mínimo 3 instrumentos avaliativos distintos, que serão definidos pelo professor.
+
+      Para aqueles em regime anual organizado em bimestres ou trimestres o mínimo são 2 instrumentos avaliativos diversificados.
+
+      Por exemplo, o professor pode dar 3 provas ou 1 prova e dois trabalhos/2 provas ou 1 prova e 1 trabalho e dividir a pontuação em diversas outras atividades diferentes, mas sempre respeitando o mínimo de 3 ou 2 atividades.
+
+      Para mais informações, basta consultar o artigo 71§ 1º a § 4º do ROD.
   utter_pontuacao_avaliacoes:
-  - text: "Para alunos em regime anual divididos em bimestres ou trimestres, o valor máximo de cada instrumento avaliativo não poderá ultrapassar 50% do valor total de pontos do período.\n\nE para aqueles em regime semestral ou anual dividido em semestres, o valor máximo de cada não pode ultrapassar 40% do total de pontos do período.\n\nRespeitando o mínimo de avaliações, a somatória de pontos de um mesmo tipo de instrumento avaliativo não poderá exceder a 80% do total de pontos do período.\n\nE também, para avaliações marcadas com uma antecedência menor que 4 dias letivos, a pontuação máxima dele não pode passar 10% do valor total de pontos da etapa.\n\nPara mais informações, basta consultar o artigo 71§ 5º a § 7º do ROD."
+  - text: |-
+      Para alunos em regime anual divididos em bimestres ou trimestres, o valor máximo de cada instrumento avaliativo não poderá ultrapassar 50% do valor total de pontos do período.
+
+      E para aqueles em regime semestral ou anual dividido em semestres, o valor máximo de cada não pode ultrapassar 40% do total de pontos do período.
+
+      Respeitando o mínimo de avaliações, a somatória de pontos de um mesmo tipo de instrumento avaliativo não poderá exceder a 80% do total de pontos do período.
+
+      E também, para avaliações marcadas com uma antecedência menor que 4 dias letivos, a pontuação máxima dele não pode passar 10% do valor total de pontos da etapa.
+
+      Para mais informações, basta consultar o artigo 71§ 5º a § 7º do ROD.
   utter_recuperacao:
-  - text: "Aos alunos que não atingirem a média de qualquer uma das avaliações (Que equivale a 60% da nota total) de alguma disciplina serão garantidos estudos de recuperação paralelos ao longo do período letivo.\nVale lembrar que o seu Campus pode ter regras próprias sobre a recuperação, então procure se informar.\nSe você ficou de recuperação, espero que tenha sucesso dessa vez!\nPara mais informações, basta consultar o artigo 75 do ROD."
+  - text: |-
+      Aos alunos que não atingirem a média de qualquer uma das avaliações (Que equivale a 60% da nota total) de alguma disciplina serão garantidos estudos de recuperação paralelos ao longo do período letivo.
+      Vale lembrar que o seu Campus pode ter regras próprias sobre a recuperação, então procure se informar.
+      Se você ficou de recuperação, espero que tenha sucesso dessa vez!
+      Para mais informações, basta consultar o artigo 75 do ROD.
   utter_pontuacao_semestral:
-  - text: "Para cursos de regime semestral ou modular, 0 a 100 pontos.\nPara cursos de regime anual organizados em semestres, de 0 a 100 pontos totais, sendo 50 pontos para cada semestre.\nPara mais informações, basta consultar o artigo 76 I e II do ROD."
+  - text: |-
+      Para cursos de regime semestral ou modular, 0 a 100 pontos.
+      Para cursos de regime anual organizados em semestres, de 0 a 100 pontos totais, sendo 50 pontos para cada semestre.
+      Para mais informações, basta consultar o artigo 76 I e II do ROD.
   utter_periodo_maximo_conclusao:
-  - text: "Você tem o dobro do tempo de duração do seu curso para concluí-lo. Se por algum motivo você exceder esse prazo, sua matrícula será cancelada.\nPara os discentes com necessidades especiais, esse prazo poderá ser flexibilizado.\n\nPara mais informações, basta consultar o artigo 16 do ROD."
+  - text: |-
+      Você tem o dobro do tempo de duração do seu curso para concluí-lo. Se por algum motivo você exceder esse prazo, sua matrícula será cancelada.
+      Para os discentes com necessidades especiais, esse prazo poderá ser flexibilizado.
+
+      Para mais informações, basta consultar o artigo 16 do ROD.
   utter_ficar_retido:
-  - text: "Você ficará retido quando tiver nota menor que 60 pontos na nota final em mais de duas disciplinas ou ter frequência menor que 75% da carga horária do curso.\nE não ter a frequência necessária cancela sua matrícula hein! Então, estude bastante para garantir sua pontuação e não falte muito para não ter problemas!\n\nPara mais informações, basta consultar o artigo 78 do ROD."
+  - text: |-
+      Você ficará retido quando tiver nota menor que 60 pontos na nota final em mais de duas disciplinas ou ter frequência menor que 75% da carga horária do curso.
+      E não ter a frequência necessária cancela sua matrícula hein! Então, estude bastante para garantir sua pontuação e não falte muito para não ter problemas!
+
+      Para mais informações, basta consultar o artigo 78 do ROD.
   utter_promocao_parcial:
-  - text: "O aluno que ficar reprovado em até duas disciplinas terá direito à promoção parcial.\nOu seja, seguirá para o próximo período letivo e irá cursar os componentes em regime de dependência, em turno distinto ao frequentado pelo estudante.\n\nPara mais informações, basta consultar os artigos 79, 80 e 87 do ROD."
+  - text: |-
+      O aluno que ficar reprovado em até duas disciplinas terá direito à promoção parcial.
+      Ou seja, seguirá para o próximo período letivo e irá cursar os componentes em regime de dependência, em turno distinto ao frequentado pelo estudante.
+
+      Para mais informações, basta consultar os artigos 79, 80 e 87 do ROD.
   utter_dependencia_condicoes:
-  - text: "Ficará de dependência o aluno que obtiver nota final menor que 60 pontos em até duas disciplinas, e que não tiver reprovado por falta.\n\nPara mais informações, basta consultar os artigos 79, 87, 88 e 89 do ROD."
+  - text: |-
+      Ficará de dependência o aluno que obtiver nota final menor que 60 pontos em até duas disciplinas, e que não tiver reprovado por falta.
+
+      Para mais informações, basta consultar os artigos 79, 87, 88 e 89 do ROD.
   utter_maximo_materias_dependencia:
-  - text: "Se você reprovar em até duas disciplinas, terá direito a dependência. Porém caso reprove em mais de 2 disciplinas, ficará retido.\n\nPara estudantes do Concomitante e Subsequente (em regime seriado), se reprovar em três ou mais matérias, deverão cursar apenas essas disciplinas no período letivo seguinte.\n\nPara mais informações, basta consultar os artigos 79 e 81 do ROD."
+  - text: |-
+      Se você reprovar em até duas disciplinas, terá direito a dependência. Porém caso reprove em mais de 2 disciplinas, ficará retido.
+
+      Para estudantes do Concomitante e Subsequente (em regime seriado), se reprovar em três ou mais matérias, deverão cursar apenas essas disciplinas no período letivo seguinte.
+
+      Para mais informações, basta consultar os artigos 79 e 81 do ROD.
   utter_revisao_notas_parciais:
-  - text: "O aluno tem direito a requerer a revisão dos resultados das avaliações no prazo de 5 dias úteis a partir da publicação dos resultados (exceto nos últimos 15 dias letivos do período, em que o prazo é de 2 dias úteis).\n\nA solicitação de revisão deverá ser feita na coordenadoria do seu curso junto com a devida justificativa.\n\nA divulgação do resultado da revisão tem o prazo de até 5 dias úteis contando a partir da data do requerimento.\n\nPara mais informações, basta consultar o artigo 83 §1º e §3º do ROD."
+  - text: |-
+      O aluno tem direito a requerer a revisão dos resultados das avaliações no prazo de 5 dias úteis a partir da publicação dos resultados (exceto nos últimos 15 dias letivos do período, em que o prazo é de 2 dias úteis).
+
+      A solicitação de revisão deverá ser feita na coordenadoria do seu curso junto com a devida justificativa.
+
+      A divulgação do resultado da revisão tem o prazo de até 5 dias úteis contando a partir da data do requerimento.
+
+      Para mais informações, basta consultar o artigo 83 §1º e §3º do ROD.
   utter_revisao_notas_finais:
-  - text: "Os alunos terão direito a revisão dos resultados finais das disciplinas desejadas com prazo de 2 dias úteis após a publicação dos resultados da reunião pedagógica final.\n\nO requerimento deverá ser feito na coordenadoria do curso junto com a devida justificativa, em um prazo máximo de dois dias após publicação das notas.\n\nA divulgação do resultado da revisão tem o prazo de até 5 dias úteis contando a partir da data do requerimento.\n\nPara mais informações, basta consultar o artigo 83 §2º do ROD."
+  - text: |-
+      Os alunos terão direito a revisão dos resultados finais das disciplinas desejadas com prazo de 2 dias úteis após a publicação dos resultados da reunião pedagógica final.
+
+      O requerimento deverá ser feito na coordenadoria do curso junto com a devida justificativa, em um prazo máximo de dois dias após publicação das notas.
+
+      A divulgação do resultado da revisão tem o prazo de até 5 dias úteis contando a partir da data do requerimento.
+
+      Para mais informações, basta consultar o artigo 83 §2º do ROD.
   utter_frequencia_minima:
-  - text: "A frequência mínima de 75% às aulas e às demais atividades acadêmicas é obrigatória.\nFique esperto(a) com as suas faltas, senão você vai se complicar depois.\nPara mais informações, basta consultar o artigo 78 do ROD."
+  - text: |-
+      A frequência mínima de 75% às aulas e às demais atividades acadêmicas é obrigatória.
+      Fique esperto(a) com as suas faltas, senão você vai se complicar depois.
+      Para mais informações, basta consultar o artigo 78 do ROD.
   utter_condicoes_aprovacao:
-  - text: "Você estará aprovado se obtiver nota final maior ou igual a 60 pontos em cada disciplina e presença maior ou igual a 75% do total da carga horária do período letivo.\nPara mais informações, basta consultar o artigo 78 do ROD."
+  - text: |-
+      Você estará aprovado se obtiver nota final maior ou igual a 60 pontos em cada disciplina e presença maior ou igual a 75% do total da carga horária do período letivo.
+      Para mais informações, basta consultar o artigo 78 do ROD.
   utter_dependencia_geral:
-  - text: "O aluno que reprovar em até 2 matérias entrará no regime de dependência. Esse regime permite ao aluno ir para o próximo período letivo, mas ele será obrigado a cursar essas disciplinas em outro horário.\n\nPara mais informações, basta consultar o artigo 87 do ROD."
+  - text: |-
+      O aluno que reprovar em até 2 matérias entrará no regime de dependência. Esse regime permite ao aluno ir para o próximo período letivo, mas ele será obrigado a cursar essas disciplinas em outro horário.
+
+      Para mais informações, basta consultar o artigo 87 do ROD.
   utter_numero_dias_letivos:
-  - text: "De modo presencial, quando em regime semestral o mínimo de dias letivos são 100, e quando é regime anual, o mínimo é de 200 dias letivos. Sendo que está excluído o período de recuperação final... E também esses dias podem considerar aulas no sábado.\n\nÉ, eu sei... sábado letivo é triste \U0001F626 mas é necessário, então não falte.\n\nPara mais informações, basta consultar o artigo 19 § 5º §, 6º e § 7º do ROD."
+  - text: |-
+      De modo presencial, quando em regime semestral o mínimo de dias letivos são 100, e quando é regime anual, o mínimo é de 200 dias letivos. Sendo que está excluído o período de recuperação final... E também esses dias podem considerar aulas no sábado.
+
+      É, eu sei... sábado letivo é triste 😦 mas é necessário, então não falte.
+
+      Para mais informações, basta consultar o artigo 19 § 5º §, 6º e § 7º do ROD.
   utter_disciplinas_optativas:
-  - text: "O estudante pode cursar disciplinas optativas desde que estejam disponíveis na matriz curricular de seu curso e existam vagas.\nA matrícula deverá ser requerida na CRA (Coordenadoria de Registro Acadêmico) do seu campus.\nSó serão aprovados os alunos que não estão de dependência.\nE vale lembrar que depois que a matrícula for feita só pode cancelar dentro de 15 dias, depois não pode mais desistir.\nPara mais informações, basta consultar os artigos  38 a 41 do ROD."
+  - text: |-
+      O estudante pode cursar disciplinas optativas desde que estejam disponíveis na matriz curricular de seu curso e existam vagas.
+      A matrícula deverá ser requerida na CRA (Coordenadoria de Registro Acadêmico) do seu campus.
+      Só serão aprovados os alunos que não estão de dependência.
+      E vale lembrar que depois que a matrícula for feita só pode cancelar dentro de 15 dias, depois não pode mais desistir.
+      Para mais informações, basta consultar os artigos  38 a 41 do ROD.
   utter_quando_proibido_trancamento_matricula:
-  - text: "A matrícula não poderá ser trancada no primeiro período letivo, quando fora do prazo que foi estabelecido no calendário acadêmico ou para cursos em extinção. Mas existem as seguintes exceções:\n\n- Convocação para o serviço militar\n- Tratamento prolongado de saúde\n- Gravidez e problemas pós parto\n- Acompanhamento para tratamento prolongado de saúde de pessoa do arranjo familiar\n- Outros casos específicos e justificados que serão avaliados pela Coordenadoria do Curso\n \nPara mais informações, basta consultar o artigo 34 § 1º do ROD."
+  - text: |-
+      A matrícula não poderá ser trancada no primeiro período letivo, quando fora do prazo que foi estabelecido no calendário acadêmico ou para cursos em extinção. Mas existem as seguintes exceções:
+
+      - Convocação para o serviço militar
+      - Tratamento prolongado de saúde
+      - Gravidez e problemas pós parto
+      - Acompanhamento para tratamento prolongado de saúde de pessoa do arranjo familiar
+      - Outros casos específicos e justificados que serão avaliados pela Coordenadoria do Curso
+       
+      Para mais informações, basta consultar o artigo 34 § 1º do ROD.
   utter_cancelamento_matricula:
-  - text: "Existem 7 motivos que causam o cancelamento da matrícula, se prepara que lá vem textão \U0001F634:\n\n1) Cancelamento por vontade própria;\n2) Quando o estudante não completar todas as matérias no prazo máximo que ele tem para concluir o curso;\n3) Quando o estudante apresentar para a matrícula um documento falso ou falsificado;\n4) Quando o estudante não frequentar os primeiros 5 dias letivos, no caso de cursos presenciais. Nos cursos a distância, quando o aluno não frequentar a aula inicial e não acessar o moodle nos primeiros 5 dias letivos sem justificativa;\n5) Quando o estudante cometer algum ato de indisciplina grave ou infracional;\n6) Quando o estudante ingressante obtiver menos de 75% de frequência de todas as disciplinas do curso de qualquer período letivo do curso;\n7) Quando o estudante não efetuar sua reabertura de matrícula após o trancamento de algum período letivo.\n\nPara mais informações, basta consultar o artigo 35 do ROD."
+  - text: |-
+      Existem 7 motivos que causam o cancelamento da matrícula, se prepara que lá vem textão 😴:
+
+      1) Cancelamento por vontade própria;
+      2) Quando o estudante não completar todas as matérias no prazo máximo que ele tem para concluir o curso;
+      3) Quando o estudante apresentar para a matrícula um documento falso ou falsificado;
+      4) Quando o estudante não frequentar os primeiros 5 dias letivos, no caso de cursos presenciais. Nos cursos a distância, quando o aluno não frequentar a aula inicial e não acessar o moodle nos primeiros 5 dias letivos sem justificativa;
+      5) Quando o estudante cometer algum ato de indisciplina grave ou infracional;
+      6) Quando o estudante ingressante obtiver menos de 75% de frequência de todas as disciplinas do curso de qualquer período letivo do curso;
+      7) Quando o estudante não efetuar sua reabertura de matrícula após o trancamento de algum período letivo.
+
+      Para mais informações, basta consultar o artigo 35 do ROD.
   utter_desistente:
-  - text: "Em cursos presenciais, aquele que não frequentar os 5 primeiros dias de aula (sem devida justificativa) será considerado um desistente, para então começar a procura de um suplente para sua vaga.\nPara aqueles em cursos a distância aquele que não frequentar a aula inaugural ou o primeiro encontro presencial, e não se justificar em 3 dias no máximo será um desistente também.\nPara mai-s informações, basta consultar o artigo 29 § 2º, § 3º e § 4º do ROD"
+  - text: |-
+      Em cursos presenciais, aquele que não frequentar os 5 primeiros dias de aula (sem devida justificativa) será considerado um desistente, para então começar a procura de um suplente para sua vaga.
+      Para aqueles em cursos a distância aquele que não frequentar a aula inaugural ou o primeiro encontro presencial, e não se justificar em 3 dias no máximo será um desistente também.
+      Para mai-s informações, basta consultar o artigo 29 § 2º, § 3º e § 4º do ROD
   utter_documentos_matricula:
-  - text: "Os documentos são divulgados no edital do processo seletivo. Os editais podem ser encontrados no link: https://www.ifes.edu.br/processosseletivos/alunos \n\nRecomendo utilizar os filtros de busca para encontrar mais facilmente o edital do seu tipo de curso.\n\nPara mais informações, basta consultar o artigo 28 do ROD."
+  - text: |-
+      Os documentos são divulgados no edital do processo seletivo. Os editais podem ser encontrados no link: https://www.ifes.edu.br/processosseletivos/alunos 
+
+      Recomendo utilizar os filtros de busca para encontrar mais facilmente o edital do seu tipo de curso.
+
+      Para mais informações, basta consultar o artigo 28 do ROD.
   utter_quando_sou_aluno:
-  - text: "Você só vai ser oficialmente um ifiano após a verificação da sua documentação e publicação da matrícula no site dos ifes e em painéis de aviso no campus e no polo EAD.\nTambém é preciso ter presença nos 5 primeiros dias de aula.\nJá para os alunos de EAD é preciso estar presente na aula inaugural e acessar o Moodle em até 5 dias.\nPara mais informações, basta consultar o artigo 29 do ROD."
+  - text: |-
+      Você só vai ser oficialmente um ifiano após a verificação da sua documentação e publicação da matrícula no site dos ifes e em painéis de aviso no campus e no polo EAD.
+      Também é preciso ter presença nos 5 primeiros dias de aula.
+      Já para os alunos de EAD é preciso estar presente na aula inaugural e acessar o Moodle em até 5 dias.
+      Para mais informações, basta consultar o artigo 29 do ROD.
   utter_prazo_matricula:
-  - text: "As datas de matrícula são divulgadas no edital do processo seletivo, da uma olhadinha lá, aqui o link para ajudar! https://ifes.edu.br/tecnicos2021 \n\nE também, caso você não compareça nas datas previstas no começo das aulas, será considerado como desistente, então fica de olho.\n\nPara mais informações, basta consultar o artigo 27 do ROD."
+  - text: |-
+      As datas de matrícula são divulgadas no edital do processo seletivo, da uma olhadinha lá, aqui o link para ajudar! https://ifes.edu.br/tecnicos2021 
+
+      E também, caso você não compareça nas datas previstas no começo das aulas, será considerado como desistente, então fica de olho.
+
+      Para mais informações, basta consultar o artigo 27 do ROD.
   utter_renovacao_matricula:
-  - text: "A rematrícula é realizada automaticamente, pode ficar tranquilo.\n\nMas vale lembrar que ela será feita baseada nos seus resultados finais e também será analisado se você tem condições de concluir o curso no prazo máximo permitido.\n\nPara mais informações, basta consultar o artigo 32 do ROD."
+  - text: |-
+      A rematrícula é realizada automaticamente, pode ficar tranquilo.
+
+      Mas vale lembrar que ela será feita baseada nos seus resultados finais e também será analisado se você tem condições de concluir o curso no prazo máximo permitido.
+
+      Para mais informações, basta consultar o artigo 32 do ROD.
   utter_regime_domiciliar_efetivacao:
-  - text: "O regime domiciliar só será efetivado após o laudo médico ser apresentado. Você tem um período de 3 dias após o afastamento para apresenta-lo.\n\nSe tem algum impedimento de locomoção, pode enviar o requerimento e o laudo dentro de 3 dias ao e-mails institucionais previstos. Neste caso, para justificar também as faltas, será necessário a apresentação do documento original presencialmente quando possível.\n\nPara mais informações, basta consultar o artigo 61 do ROD."
+  - text: |-
+      O regime domiciliar só será efetivado após o laudo médico ser apresentado. Você tem um período de 3 dias após o afastamento para apresenta-lo.
+
+      Se tem algum impedimento de locomoção, pode enviar o requerimento e o laudo dentro de 3 dias ao e-mails institucionais previstos. Neste caso, para justificar também as faltas, será necessário a apresentação do documento original presencialmente quando possível.
+
+      Para mais informações, basta consultar o artigo 61 do ROD.
   utter_regime_domiciliar_condicoes:
-  - text: "Terá direito ao atendimento domiciliar o estudante que precisar se ausentar das aulas por um período de 15 a 44 dias pelos seguintes motivos:\n\n- Ser portador de doença infectocontagiosa;\n- Necessitar de tratamento prolongado de saúde;\n- Necessitar acompanhar parentes de 1º grau com problemas de saúde e comprovar a necessidade de assistência intensiva;\n- Estar grávida e pelo menos no oitavo mês de gestação (terá o direito a 3 meses de atendimento domiciliar)\n\nPara mais informações, basta consultar o artigo 59 do ROD."
+  - text: |-
+      Terá direito ao atendimento domiciliar o estudante que precisar se ausentar das aulas por um período de 15 a 44 dias pelos seguintes motivos:
+
+      - Ser portador de doença infectocontagiosa;
+      - Necessitar de tratamento prolongado de saúde;
+      - Necessitar acompanhar parentes de 1º grau com problemas de saúde e comprovar a necessidade de assistência intensiva;
+      - Estar grávida e pelo menos no oitavo mês de gestação (terá o direito a 3 meses de atendimento domiciliar)
+
+      Para mais informações, basta consultar o artigo 59 do ROD.
   utter_regime_domiciliar_sobre:
-  - text: "O estudante que não puder frequentar a aula por um período de 15 a 44 dias poderá pedir o atendimento domiciliar. O pedido deve ser feito em até 3 dias após o afastamento, com apresentação do laudo médico, não tendo efeito retroativo após esse prazo.\n\nCaso você precise se ausentar por um período maior que esse é preciso pedir o trancamento da matricula.\n\nNo caso de gravidez, o período de atendimento domiciliar poderá ser de 3 meses, a partir do oitavo mês de gestação.\n\nPara mais informações, basta consultar os artigos 58 a 62 do ROD."
+  - text: |-
+      O estudante que não puder frequentar a aula por um período de 15 a 44 dias poderá pedir o atendimento domiciliar. O pedido deve ser feito em até 3 dias após o afastamento, com apresentação do laudo médico, não tendo efeito retroativo após esse prazo.
+
+      Caso você precise se ausentar por um período maior que esse é preciso pedir o trancamento da matricula.
+
+      No caso de gravidez, o período de atendimento domiciliar poderá ser de 3 meses, a partir do oitavo mês de gestação.
+
+      Para mais informações, basta consultar os artigos 58 a 62 do ROD.
   utter_prazo_regime_domiciliar_laudo_medico:
-  - text: "Você tem um período de 3 dias após o afastamento para apresentá-lo.\n \nSe tem algum impedimento de locomoção, pode enviar o requerimento e o laudo dentro de 3 dias aos e-mails institucionais previstos. Se for justificado por e-mail, será necessário também a apresentação do documento original presencialmente quando possível.\n\nPara mais informações, basta consultar o artigo 61 do ROD."
+  - text: |-
+      Você tem um período de 3 dias após o afastamento para apresentá-lo.
+       
+      Se tem algum impedimento de locomoção, pode enviar o requerimento e o laudo dentro de 3 dias aos e-mails institucionais previstos. Se for justificado por e-mail, será necessário também a apresentação do documento original presencialmente quando possível.
+
+      Para mais informações, basta consultar o artigo 61 do ROD.
   utter_regime_domiciliar_gravidas:
-  - text: "A aluna gestante terá direito a 3 meses de atendimento domiciliar a partir do oitavo mês de gestação.\n\nPara mais informações, basta consultar o artigo 59 § 1° do ROD."
+  - text: |-
+      A aluna gestante terá direito a 3 meses de atendimento domiciliar a partir do oitavo mês de gestação.
+
+      Para mais informações, basta consultar o artigo 59 § 1° do ROD.
   utter_cumprimentar:
-  - text: "Olá! Eu sou o ifes.talk, assistente virtual do Instituto Federal do ES (Ifes). Estou no Ifes desde 2018, então já sei algumas coisas sobre ele, mas não tudo ok?! No momento, tenho mais conhecimento sobre direitos e deveres dos alunos! Estou aqui para ajudar, então vamos lá!\n\nVocê pode acessar todos os ROD's (Regulamentos da Organização Didática) no link https://bit.ly/3s1hSM2 \n\nE vale lembrar também, que podem existir algumas regulamentações internas do campus para complementar alguns assuntos, então você deve procurar o NGP (Núcleo de Gestão Pedagógica) ou o coordenador do seu curso para mais informações.\nQualquer hora que quiser ajuda, só pedir!\n\nPara começar, me fale seu primeiro nome:"
+  - text: |-
+      Olá! Eu sou o ifes.talk, assistente virtual do Instituto Federal do ES (Ifes). Estou no Ifes desde 2018, então já sei algumas coisas sobre ele, mas não tudo ok?! No momento, tenho mais conhecimento sobre direitos e deveres dos alunos! Estou aqui para ajudar, então vamos lá!
+
+      Você pode acessar todos os ROD's (Regulamentos da Organização Didática) no link https://bit.ly/3s1hSM2 
+
+      E vale lembrar também, que podem existir algumas regulamentações internas do campus para complementar alguns assuntos, então você deve procurar o NGP (Núcleo de Gestão Pedagógica) ou o coordenador do seu curso para mais informações.
+      Qualquer hora que quiser ajuda, só pedir!
+
+      Para começar, me fale seu primeiro nome:
   utter_rod_geral:
-  - text: "O Regulamento da Organização Didática dos Cursos Técnicos, mais conhecido como ROD, é um documento do IFES que possui todas as regras e processos didáticos e pedagógicos que devem ser seguidos dentro do IFES.\nPara mais informações, basta consultar o artigo 1° do ROD."
+  - text: |-
+      O Regulamento da Organização Didática dos Cursos Técnicos, mais conhecido como ROD, é um documento do IFES que possui todas as regras e processos didáticos e pedagógicos que devem ser seguidos dentro do IFES.
+      Para mais informações, basta consultar o artigo 1° do ROD.
   utter_plano_ensino_contem:
-  - text: "A lista é meio grandinha, mas vamos lá. O Plano de Ensino deverá conter:\n\n1) Curso, período letivo, componentes curriculares, carga horária e ementa;\n2) Período de execução e nome do(s) docente(s);\n3) Objetivo geral e específicos;\n4) Conteúdo programático com previsão de carga horária por conteúdo;\n5) Metodologias utilizadas;\n6) Sistema de avaliação: instrumentos e valores e estratégias de recuperação paralela;\n7) Fontes de referência no formato da ABNT;\n8) PARA CURSOS A DISTÂNCIA OU CURRICULARES HÍBRIDOS: Atividades online, presenciais e não presenciais;\n9) Ações pedagógicas adequadas às necessidades específicas dos estudantes quando identificada a necessidade;\n10) Atividades interdisciplinares;\n11) Cronograma de avaliações, com previsão das datas e conteúdos.\n\nPara mais informações, basta consultar o artigo 13 §1 do ROD."
+  - text: |-
+      A lista é meio grandinha, mas vamos lá. O Plano de Ensino deverá conter:
+
+      1) Curso, período letivo, componentes curriculares, carga horária e ementa;
+      2) Período de execução e nome do(s) docente(s);
+      3) Objetivo geral e específicos;
+      4) Conteúdo programático com previsão de carga horária por conteúdo;
+      5) Metodologias utilizadas;
+      6) Sistema de avaliação: instrumentos e valores e estratégias de recuperação paralela;
+      7) Fontes de referência no formato da ABNT;
+      8) PARA CURSOS A DISTÂNCIA OU CURRICULARES HÍBRIDOS: Atividades online, presenciais e não presenciais;
+      9) Ações pedagógicas adequadas às necessidades específicas dos estudantes quando identificada a necessidade;
+      10) Atividades interdisciplinares;
+      11) Cronograma de avaliações, com previsão das datas e conteúdos.
+
+      Para mais informações, basta consultar o artigo 13 §1 do ROD.
   utter_plano_ensino_datas:
-  - text: "Após o professor revisar e alterar o Plano, ele deverá ser enviado ao Setor Pedagógico para este acompanhar todo o processo de aprendizado. E então deve ser divulgado pelos meios institucionais, geralmente ocorre pelo Ambiente Virtual de Aprendizagem (AVA/Moodle) ou Sistema Acadêmico.\n \nPara aqueles que estudam à distância, o mapa de atividades deve ser enviado à Coordenadoria de Curso para alterar o que achar necessário.\n\nÉ obrigatório que o professor apresente o Plano de Ensino aos estudantes no início de período letivo.\nO Plano só pode ser mudado após divulgado caso aprovado pela Coordenação do Curso e Setor Pedagógico. E também precisará ser re-apresentado aos alunos.\n\nPara mais informações, basta consultar os artigos 13 §2 e §3 e 15 do ROD."
+  - text: |-
+      Após o professor revisar e alterar o Plano, ele deverá ser enviado ao Setor Pedagógico para este acompanhar todo o processo de aprendizado. E então deve ser divulgado pelos meios institucionais, geralmente ocorre pelo Ambiente Virtual de Aprendizagem (AVA/Moodle) ou Sistema Acadêmico.
+       
+      Para aqueles que estudam à distância, o mapa de atividades deve ser enviado à Coordenadoria de Curso para alterar o que achar necessário.
+
+      É obrigatório que o professor apresente o Plano de Ensino aos estudantes no início de período letivo.
+      O Plano só pode ser mudado após divulgado caso aprovado pela Coordenação do Curso e Setor Pedagógico. E também precisará ser re-apresentado aos alunos.
+
+      Para mais informações, basta consultar os artigos 13 §2 e §3 e 15 do ROD.
   utter_coeficiente_rendimento:
-  - text: "Para saber seu Coeficiente de Rendimento, que deve aparecer no rodapé do seu boletim, é só somar os produtos das notas finais pelas respectivas cargas horárias e dividir pela somatória das cargas horárias. Um pouco confuso né? É só ir calculando com calma! Qualquer coisa usa o seu coeficiente passado para confirmar se está calculando certo.\nPara mais informações, basta onsultar os artigos 17 e 18 do ROD."
+  - text: |-
+      Para saber seu Coeficiente de Rendimento, que deve aparecer no rodapé do seu boletim, é só somar os produtos das notas finais pelas respectivas cargas horárias e dividir pela somatória das cargas horárias. Um pouco confuso né? É só ir calculando com calma! Qualquer coisa usa o seu coeficiente passado para confirmar se está calculando certo.
+      Para mais informações, basta onsultar os artigos 17 e 18 do ROD.
   utter_oferta_cursos:
-  - text: "Os cursos podem funcionar de forma semestral ou anual, nas modalidades presencial e/ou a distância.\nOs cursos em regime anual podem ser organizados em bimestres, trimestres ou semestres. \nOs cursos técnicos podem ser integrados ao ensino médio, concomitante, subsequente ou EJA.\nPara mais informações, basta consultar o artigo 19 do ROD."
+  - text: |-
+      Os cursos podem funcionar de forma semestral ou anual, nas modalidades presencial e/ou a distância.
+      Os cursos em regime anual podem ser organizados em bimestres, trimestres ou semestres. 
+      Os cursos técnicos podem ser integrados ao ensino médio, concomitante, subsequente ou EJA.
+      Para mais informações, basta consultar o artigo 19 do ROD.
   utter_tempo_oferta_aulas:
-  - text: "Os cursos podem ser oferecidos nos turnos matutino, vespertino, noturno e integral.\nAs aulas podem ser dadas de segunda-feira a sabádo.\n\nSendo que a Educação a Distância será melhor orientada de acordo com o MEC/Setec.\n\nPara mais informações,basta consultar o artigo 20 do ROD."
+  - text: |-
+      Os cursos podem ser oferecidos nos turnos matutino, vespertino, noturno e integral.
+      As aulas podem ser dadas de segunda-feira a sabádo.
+
+      Sendo que a Educação a Distância será melhor orientada de acordo com o MEC/Setec.
+
+      Para mais informações,basta consultar o artigo 20 do ROD.
   utter_calendario_academico_conteudo:
-  - text: "No calendário acadêmico, obrigatoriamente são previstas 22 informações para estarem contidas nele. Ficaria uma lista grande demais se eu escrevesse aqui rsrs, então você pode dar uma olhadinha no ROD pelo link: https://bit.ly/3sW1OfL \n\nPara essas informações é só consultar o artigo 21."
+  - text: |-
+      No calendário acadêmico, obrigatoriamente são previstas 22 informações para estarem contidas nele. Ficaria uma lista grande demais se eu escrevesse aqui rsrs, então você pode dar uma olhadinha no ROD pelo link: https://bit.ly/3sW1OfL 
+
+      Para essas informações é só consultar o artigo 21.
   utter_ifes_condicoes:
-  - text: "Para ingressar no IFES é preciso participar do processo seletivo que será realizado para os cursos.\nOs critérios de seleção, as normas e detalhes de cada curso estarão no edital, que pode ser encontrado através deste link: https://ifes.edu.br/tecnicos2021 \nPara aqueles com necessidades específicas é garantida diferentes condições para a realização da prova conforme a manifestação do candidato no ato da inscrição.\nPara os candidatos do EJA, os procedimentos do processo seletivo podem ser um pouco diferentes, é só procurar os detalhes no edital.\nE a quantidade de vagas disponibilizadas depende do curso, também algo presente no edital.\nPara mais informações, basta consultar os artigos 23 e 24 do ROD."
+  - text: |-
+      Para ingressar no IFES é preciso participar do processo seletivo que será realizado para os cursos.
+      Os critérios de seleção, as normas e detalhes de cada curso estarão no edital, que pode ser encontrado através deste link: https://ifes.edu.br/tecnicos2021 
+      Para aqueles com necessidades específicas é garantida diferentes condições para a realização da prova conforme a manifestação do candidato no ato da inscrição.
+      Para os candidatos do EJA, os procedimentos do processo seletivo podem ser um pouco diferentes, é só procurar os detalhes no edital.
+      E a quantidade de vagas disponibilizadas depende do curso, também algo presente no edital.
+      Para mais informações, basta consultar os artigos 23 e 24 do ROD.
   utter_preenchimento_vagas_discentes_ifes:
-  - text: "O preenchimento de vagas ociosas ocorre a partir do segundo período letivo, de acordo com a seguinte ordem de prioridade:\nI - Aprovados em mudança de turno;\nII - Autorizados a fazer reintegração de matrícula no mesmo campus, curso, modalidade de oferta e polo de apoio presencial;\nIII - Aprovados em mudança de campus, polo de apoio presencial ou modalidade para um mesmo curso;\nIV - Aprovados em mudança de curso.\nPara mais informações, basta consultar o artigo 25 § 1º do ROD."
+  - text: |-
+      O preenchimento de vagas ociosas ocorre a partir do segundo período letivo, de acordo com a seguinte ordem de prioridade:
+      I - Aprovados em mudança de turno;
+      II - Autorizados a fazer reintegração de matrícula no mesmo campus, curso, modalidade de oferta e polo de apoio presencial;
+      III - Aprovados em mudança de campus, polo de apoio presencial ou modalidade para um mesmo curso;
+      IV - Aprovados em mudança de curso.
+      Para mais informações, basta consultar o artigo 25 § 1º do ROD.
   utter_matricula_sobre:
-  - text: "A matrícula é o ato que vincula oficialmente o candidato ao curso escolhido caso aprovado no processo seletivo e satisfaça as condições de ingresso dentro dos prazos estabelecidos no edital, que pode ser encontrado através deste link: https://ifes.edu.br/tecnicos2021 \n\nPara mais informações, basta consultar o artigo 27 do ROD."
+  - text: |-
+      A matrícula é o ato que vincula oficialmente o candidato ao curso escolhido caso aprovado no processo seletivo e satisfaça as condições de ingresso dentro dos prazos estabelecidos no edital, que pode ser encontrado através deste link: https://ifes.edu.br/tecnicos2021 
+
+      Para mais informações, basta consultar o artigo 27 do ROD.
   utter_reintegracao_matricula_sobre:
-  - text: "A reintegração de matrícula é quando o aluno pede a reativação da matrícula para um mesmo curso (ou para aqueles estudando a distância, para um mesmo polo de apoio presencial) quando afastado por cancelamento da matrícula.\n\nPara mais informações, basta consultar o artigo 36 do ROD."
+  - text: |-
+      A reintegração de matrícula é quando o aluno pede a reativação da matrícula para um mesmo curso (ou para aqueles estudando a distância, para um mesmo polo de apoio presencial) quando afastado por cancelamento da matrícula.
+
+      Para mais informações, basta consultar o artigo 36 do ROD.
   utter_segunda_chance_avaliacao_turma:
-  - text: "Se mais da metade da sua turma tiver um resultado 'insatisfatório' numa avaliativa, pode-se pedir uma intervenção pedagógica para ter uma chance de substituição da avaliação por outra.\n\nPara mais informações, basta consultar o artigo 72 do ROD."
+  - text: |-
+      Se mais da metade da sua turma tiver um resultado 'insatisfatório' numa avaliativa, pode-se pedir uma intervenção pedagógica para ter uma chance de substituição da avaliação por outra.
+
+      Para mais informações, basta consultar o artigo 72 do ROD.
   utter_segunda_chance_avaliacao_discente:
-  - text: "O discente pode requerer uma segunda chance de avaliação no campus ou polo de apoio presencial caso satisfaça os critérios do Código de Ética e Disciplina do Corpo Discente do Ifes.\nSe esse tiver uma segunda oportunidade, mas não comparecer a ela, além de receber zero, ele não vai mais ter o direito de oportunidades assim.\n\nPara mais informações, basta consultar o artigo 73 do ROD."
+  - text: |-
+      O discente pode requerer uma segunda chance de avaliação no campus ou polo de apoio presencial caso satisfaça os critérios do Código de Ética e Disciplina do Corpo Discente do Ifes.
+      Se esse tiver uma segunda oportunidade, mas não comparecer a ela, além de receber zero, ele não vai mais ter o direito de oportunidades assim.
+
+      Para mais informações, basta consultar o artigo 73 do ROD.
   utter_estudantes_distancia_avaliacao_rendimento:
-  - text: "A avaliação do rendimento daqueles estudando a distância é feita a partir do cumprimento das atividades programadas, da realização de avaliações presenciais, e da prevalência dos resultados de avaliações presenciais comparado aos outros resultados de avaliações a distância.\nPara mais informações, basta consultar o artigo 74 do ROD."
+  - text: |-
+      A avaliação do rendimento daqueles estudando a distância é feita a partir do cumprimento das atividades programadas, da realização de avaliações presenciais, e da prevalência dos resultados de avaliações presenciais comparado aos outros resultados de avaliações a distância.
+      Para mais informações, basta consultar o artigo 74 do ROD.
   utter_pontuacao_trimestral:
-  - text: "Para cursos de regime anual organizados em trimestres, o primeiro trimestre tem de 0 a 30 pontos, o segundo tem de 0 a 35 pontos, e o terceiro de 0 a 35 pontos.\nPara mais informações, basta consultar o artigo 76 III do ROD."
+  - text: |-
+      Para cursos de regime anual organizados em trimestres, o primeiro trimestre tem de 0 a 30 pontos, o segundo tem de 0 a 35 pontos, e o terceiro de 0 a 35 pontos.
+      Para mais informações, basta consultar o artigo 76 III do ROD.
   utter_pontuacao_bimestral:
-  - text: "Para cursos de regime anual organizados em bimestres, cada um dos quatro bimestres tem de 0 a 25 pontos.\nPara mais informações, basta consultar o artigo 76 IV do ROD."
+  - text: |-
+      Para cursos de regime anual organizados em bimestres, cada um dos quatro bimestres tem de 0 a 25 pontos.
+      Para mais informações, basta consultar o artigo 76 IV do ROD.
   utter_registro_informacoes_no_academico:
-  - text: "Para quem estuda presencialmente, o professor tem que registrar diariamente as atividades feitas nas aulas, as frequências dos alunos e seus resultados de avaliações no Q-Acadêmico.\nPara quem estuda a distância, a carga horária é considerada cumprida quando as atividades forem sendo feitas no ambiente virtual, além das feitas em presencial também. E então, o professor deve anotar as notas no Q-Acadêmico sempre, e só registrar frequência e conteúdo quando ocorrer aulas presenciais.\nPara mais informações, basta consultar os artigos 84 e 85 do ROD."
+  - text: |-
+      Para quem estuda presencialmente, o professor tem que registrar diariamente as atividades feitas nas aulas, as frequências dos alunos e seus resultados de avaliações no Q-Acadêmico.
+      Para quem estuda a distância, a carga horária é considerada cumprida quando as atividades forem sendo feitas no ambiente virtual, além das feitas em presencial também. E então, o professor deve anotar as notas no Q-Acadêmico sempre, e só registrar frequência e conteúdo quando ocorrer aulas presenciais.
+      Para mais informações, basta consultar os artigos 84 e 85 do ROD.
   utter_reuniao_pedagogica_sobre:
-  - text: "As reuniões pedagógicas servem para refletir, decidir e revisar a prática educativa, para entender como as turmas estão se encaixando nisso e trocar experiências para poder melhorar o processo de ensino-aprendizagem.\nExistem três tipos de reuniões pedagógicas: inicial, intermediária e final.\nPara mais informações, basta consultar o artigo 90 do ROD."
+  - text: |-
+      As reuniões pedagógicas servem para refletir, decidir e revisar a prática educativa, para entender como as turmas estão se encaixando nisso e trocar experiências para poder melhorar o processo de ensino-aprendizagem.
+      Existem três tipos de reuniões pedagógicas: inicial, intermediária e final.
+      Para mais informações, basta consultar o artigo 90 do ROD.
   utter_reuniao_pedagogica_inicial:
-  - text: "A Reunião Pedagógica Inicial serve para:\n\n1) Discutir e sugerir estratégias de ensino para ter uma boa aprendizagem, garantindo também metadologias diferentes para aqueles com necessidades específicas;\n2) Avaliar e sugerir a revisão dos Planos de Ensino se acharem necessário;\n3) Sugerir umas adequações a o que planejaram para envolver mais conteúdos interdisciplinares;\n4) Promover debates sobre o processo educacional e as rotinas do campus (ou polo de apoio presencial, para quem estuda a distância) para sempre aprimorar algo se precisar.\n\nPara mais informações, basta consultar o artigo 91 do ROD."
+  - text: |-
+      A Reunião Pedagógica Inicial serve para:
+
+      1) Discutir e sugerir estratégias de ensino para ter uma boa aprendizagem, garantindo também metadologias diferentes para aqueles com necessidades específicas;
+      2) Avaliar e sugerir a revisão dos Planos de Ensino se acharem necessário;
+      3) Sugerir umas adequações a o que planejaram para envolver mais conteúdos interdisciplinares;
+      4) Promover debates sobre o processo educacional e as rotinas do campus (ou polo de apoio presencial, para quem estuda a distância) para sempre aprimorar algo se precisar.
+
+      Para mais informações, basta consultar o artigo 91 do ROD.
   utter_reuniao_pedagogica_intermediaria:
-  - text: "A Reunião Pedagógica Intermediária serve para:\n\n1) Discutir dificuldades da turma no processo de ensino-aprendizagem até o momento;\n2) Analisar o relatório de avaliação elaborado pela turma (geralmente por responsabilidade dos representantes de turma);\n3) Sugerir medidas de ensino novas para superar as dificuldades relatadas;\n4) Sugerir adequações ao conteúdo planejado do curso para haver uma maior interdisciplinaridade;\n5) Documentar oficialmente as questões submetidas e discutidas da reunião.\n\nPara mais informações, basta consultar o artigo 92 do ROD."
+  - text: |-
+      A Reunião Pedagógica Intermediária serve para:
+
+      1) Discutir dificuldades da turma no processo de ensino-aprendizagem até o momento;
+      2) Analisar o relatório de avaliação elaborado pela turma (geralmente por responsabilidade dos representantes de turma);
+      3) Sugerir medidas de ensino novas para superar as dificuldades relatadas;
+      4) Sugerir adequações ao conteúdo planejado do curso para haver uma maior interdisciplinaridade;
+      5) Documentar oficialmente as questões submetidas e discutidas da reunião.
+
+      Para mais informações, basta consultar o artigo 92 do ROD.
   utter_reuniao_pedagogica_final:
-  - text: "A Reunião Pedagógica Final serve para:\n\n1) Deliberar a respeito da situação final dos alunos;\n2) Promover a reflexão e a autoavaliação do trabalho didático-pedagógico que foi realizado; \n3) Possibilitar uma análise geral do desenvolvimento dos estudantes para os docentes poderem se planejar melhor para os próximos períodos de ensino;\n4) Sugerir estratégias de ensino para os professores que vão trabalhar novamente com alunos que não passaram;\n5) Debater a situação dos alunos que tiraram menos que 60 pontos na final desde que esses tenham tirado no mínimo 50, para decidir se esses podem passar ou não. Por causa disso mostre esforço durante o ano para poder ser aceito mesmo se não conseguir os 60!;\n6) Documentar direitinho todos os resultados finais decididos.\n\nPara mais informações, basta consultar o artigo 93 do ROD."
+  - text: |-
+      A Reunião Pedagógica Final serve para:
+
+      1) Deliberar a respeito da situação final dos alunos;
+      2) Promover a reflexão e a autoavaliação do trabalho didático-pedagógico que foi realizado; 
+      3) Possibilitar uma análise geral do desenvolvimento dos estudantes para os docentes poderem se planejar melhor para os próximos períodos de ensino;
+      4) Sugerir estratégias de ensino para os professores que vão trabalhar novamente com alunos que não passaram;
+      5) Debater a situação dos alunos que tiraram menos que 60 pontos na final desde que esses tenham tirado no mínimo 50, para decidir se esses podem passar ou não. Por causa disso mostre esforço durante o ano para poder ser aceito mesmo se não conseguir os 60!;
+      6) Documentar direitinho todos os resultados finais decididos.
+
+      Para mais informações, basta consultar o artigo 93 do ROD.
   utter_reuniao_pedagogica_decisao_final:
-  - text: "Na Reunião Pedagógica Final, a análise para a progressão ou retenção dos discentes que podem reprovar envolve os registros e acompanhamentos feitos pelos docentes ao longo do período letivo, em que a qualidade não pode ser menos importante que a quantidade, ou seja, se esforço foi demonstrado, tem mais chance de passar. Aqueles que têm direito ao voto final são:\n- Docentes que atuam na turma;\n- Representante do Setor Pedagógico;\n- Coordenador de Curso;\n- 1 membro da equipe de atendimento multidisciplinar da assistência estudantil;\n- 1 membro do Napne para os alunos acompanhados por esse Núcleo;\n- Para quem estuda a distância, mediadores que atuam na turma.\nCaso tenha um empate, vai ser priorizado o voto do(s) docente(s) da matéria em questão.\n\nPara mais informações, basta consultar o artigo 94 do ROD."
+  - text: |-
+      Na Reunião Pedagógica Final, a análise para a progressão ou retenção dos discentes que podem reprovar envolve os registros e acompanhamentos feitos pelos docentes ao longo do período letivo, em que a qualidade não pode ser menos importante que a quantidade, ou seja, se esforço foi demonstrado, tem mais chance de passar. Aqueles que têm direito ao voto final são:
+      - Docentes que atuam na turma;
+      - Representante do Setor Pedagógico;
+      - Coordenador de Curso;
+      - 1 membro da equipe de atendimento multidisciplinar da assistência estudantil;
+      - 1 membro do Napne para os alunos acompanhados por esse Núcleo;
+      - Para quem estuda a distância, mediadores que atuam na turma.
+      Caso tenha um empate, vai ser priorizado o voto do(s) docente(s) da matéria em questão.
+
+      Para mais informações, basta consultar o artigo 94 do ROD.
   utter_reuniao_pedagogica_membros:
-  - text: "Vamos para a listinha! Os membros da Reunião Pedagógica são:\n\n1) 1 representante do setor pedagógico (participação obrigatória nas 3 reuniões);\n2) Todos os docentes que atuam na turma (participação obrigatória nas 3 reuniões);\n3) O Coordenador do Curso ou representante (participação obrigatória nas 3 reuniões);\n4) Diretor de Ensino e Coordenador Geral de Ensino (participação facultativa nas 3 reuniões);\n5) 1 representante da Coordenadoria de Registros Acadêmicos (participação obrigatória nas reunião final);\n6) 1 representante de turma (participação obrigatória na reunião intermediária);\n7) Para modalidade EJA, a turma toda deve participar em horário normal de aula na reunião intermediária;\n8) 1 representante da Coordenadoria Geral da Assistência à Comunidade ou o setor equivalente do campus (participação obrigatória nas 3 reuniões);\n9) 1 membro da equipe de atendimento multidisciplinarda assistência estudantil (participação obrigatória nas 3 reuniões);\n10) 1 membro do Napne (participação obrigatória nas 3 reuniões se a turma tem alunos acompanhados por esse núcleo). \n\nPara mais informações, basta consultar o artigo 95 do ROD."
+  - text: |-
+      Vamos para a listinha! Os membros da Reunião Pedagógica são:
+
+      1) 1 representante do setor pedagógico (participação obrigatória nas 3 reuniões);
+      2) Todos os docentes que atuam na turma (participação obrigatória nas 3 reuniões);
+      3) O Coordenador do Curso ou representante (participação obrigatória nas 3 reuniões);
+      4) Diretor de Ensino e Coordenador Geral de Ensino (participação facultativa nas 3 reuniões);
+      5) 1 representante da Coordenadoria de Registros Acadêmicos (participação obrigatória nas reunião final);
+      6) 1 representante de turma (participação obrigatória na reunião intermediária);
+      7) Para modalidade EJA, a turma toda deve participar em horário normal de aula na reunião intermediária;
+      8) 1 representante da Coordenadoria Geral da Assistência à Comunidade ou o setor equivalente do campus (participação obrigatória nas 3 reuniões);
+      9) 1 membro da equipe de atendimento multidisciplinarda assistência estudantil (participação obrigatória nas 3 reuniões);
+      10) 1 membro do Napne (participação obrigatória nas 3 reuniões se a turma tem alunos acompanhados por esse núcleo). 
+
+      Para mais informações, basta consultar o artigo 95 do ROD.
   utter_monitoria:
-  - text: "Na monitoria alunos que são bons em certa matéria ajudam alunos com dificuldade nela. É uma forma de auxílio ao processo de ensino do professor.\nA oferta da monitoria deve respeitar a distribuição que é prevista nos editais para cada modalidade e nível de ensino.\nPara mais informações, basta consultar o artigo 100 do ROD."
+  - text: |-
+      Na monitoria alunos que são bons em certa matéria ajudam alunos com dificuldade nela. É uma forma de auxílio ao processo de ensino do professor.
+      A oferta da monitoria deve respeitar a distribuição que é prevista nos editais para cada modalidade e nível de ensino.
+      Para mais informações, basta consultar o artigo 100 do ROD.
   utter_estagio:
-  - text: "O aluno deve concluir o estágio dentro do tempo previsto para conclusão do curso, ou seja, o dobro da duração mínima dele. Então atenção porque se passar do tempo você perde a matrícula! E cabe ao Ifes possibilitar condições para ser realizado o estágio obrigatório. \nPara mais informações, basta consultar os artigos 101 e 102 do ROD."
+  - text: |-
+      O aluno deve concluir o estágio dentro do tempo previsto para conclusão do curso, ou seja, o dobro da duração mínima dele. Então atenção porque se passar do tempo você perde a matrícula! E cabe ao Ifes possibilitar condições para ser realizado o estágio obrigatório. 
+      Para mais informações, basta consultar os artigos 101 e 102 do ROD.
   utter_corpo_discente:
-  - text: "O corpo discente é formado pelos alunos matriculados e ativos no Ifes e podem se organizar em Grêmios e/ou representantes de turma que são eleitos em cada período letivo.\nPara mais informações, basta consultar o artigo 103 do ROD."
+  - text: |-
+      O corpo discente é formado pelos alunos matriculados e ativos no Ifes e podem se organizar em Grêmios e/ou representantes de turma que são eleitos em cada período letivo.
+      Para mais informações, basta consultar o artigo 103 do ROD.
   utter_rod_2020_validade:
-  - text: "O ROD 2020, que é o ROD em que me baseio para responder suas perguntas atualmente, é válido por 4 anos desde sua implementação, e depois disso é avaliado de novo por toda a comunidade escolar.\nOu seja, o ROD pode mudar e geralmente de fato muda a cada 4 anos! \nPara mais informações, basta consultar o artigo 106 do ROD."
+  - text: |-
+      O ROD 2020, que é o ROD em que me baseio para responder suas perguntas atualmente, é válido por 4 anos desde sua implementação, e depois disso é avaliado de novo por toda a comunidade escolar.
+      Ou seja, o ROD pode mudar e geralmente de fato muda a cada 4 anos! 
+      Para mais informações, basta consultar o artigo 106 do ROD.
   utter_tit_cap_rod:
   - text: Dá uma olhada no capítulo I do ROD atual, 'do rod', do título I, 'das diretrizes gerais'! Esse abrange os artigos 1 a 5~
   utter_tit_cap_cursos_curriculos_planos_ensino:
@@ -666,19 +1027,49 @@ responses:
   utter_tit_disposicoes_gerais_transitorias:
   - text: Dá uma olhada no título IX do ROD atual, 'do intercâmbio acadêmico'! Faz parte deste os artigos 106 a 108~
   utter_sumario_rod:
-  - text: "Aqui um sumário para você do ROD 2020!\n \nTítulo I - Capítulo I - Do ROD\nTítulo II - Capítulo I - Da Organização Didática\nTítulo III - Capítulo I - Do Período Letivo\nTítulo III - Capítulo II - Da Admissão e da Metrícula\nTítulo III - Capítulo III - Do Atendimento Domiciliar\nTítulo III - Capítulo IV - Das Transferências e Adaptações\nTítulo IV - Capítulo I - Das Modalidades\nTítulo IV - Capítulo II - Das Reuniões Pedagógicas\nTítulo V - Capítulo I - Do Estágio Curricular\nTítulo VI - Das Organizações e Orientações Discentes\nTítulo VII - Dos Certificados e Diplomas\nTítulo VIII - Do Intercâmbio Acadêmico\nTítulo IX - Das Disposições Gerais e Transitórias\n \nSe quiser algo mais específico que isso olha no próprio ROD, ok? Te facilitarei hehe, toma o link: https://bit.ly/3sW1OfL"
+  - text: |-
+      Aqui um sumário para você do ROD 2020!
+       
+      Título I - Capítulo I - Do ROD
+      Título II - Capítulo I - Da Organização Didática
+      Título III - Capítulo I - Do Período Letivo
+      Título III - Capítulo II - Da Admissão e da Metrícula
+      Título III - Capítulo III - Do Atendimento Domiciliar
+      Título III - Capítulo IV - Das Transferências e Adaptações
+      Título IV - Capítulo I - Das Modalidades
+      Título IV - Capítulo II - Das Reuniões Pedagógicas
+      Título V - Capítulo I - Do Estágio Curricular
+      Título VI - Das Organizações e Orientações Discentes
+      Título VII - Dos Certificados e Diplomas
+      Título VIII - Do Intercâmbio Acadêmico
+      Título IX - Das Disposições Gerais e Transitórias
+       
+      Se quiser algo mais específico que isso olha no próprio ROD, ok? Te facilitarei hehe, toma o link: https://bit.ly/3sW1OfL
   utter_processos_pedagogicos_e_didaticos:
-  - text: "Os processos pedagógicos e didáticos são respectivamente, um processo que tem como objetivo promover relações significativas entre o aprendiz e o conhecimento produzido e um processo que se baseia no conjunto de atividades do professor e dos alunos, sob a direção do professor, para que haja uma assimilação ativa de conhecimentos e desenvolvimento das habilidades dos alunos.\nPara mais informações sobre os processos, basta consultar o ROD."
+  - text: |-
+      Os processos pedagógicos e didáticos são respectivamente, um processo que tem como objetivo promover relações significativas entre o aprendiz e o conhecimento produzido e um processo que se baseia no conjunto de atividades do professor e dos alunos, sob a direção do professor, para que haja uma assimilação ativa de conhecimentos e desenvolvimento das habilidades dos alunos.
+      Para mais informações sobre os processos, basta consultar o ROD.
   utter_educacao_nacional_constituicao_form_integral:
-  - text: "O ensino ministrado no Ifes observará não só os objetivos próprios de cada curso, como também os ideais e os fins da educação nacional previstos na Constituição da República Federativa do Brasil, nas Diretrizes e Bases da Educação Nacional – Lei nº 9.394/96 – e suas regulamentações, bem como na legislação que rege a Educação Profissional Técnica de Nível Médio, tendo em vista a formação integral dos educandos.\nPara mais informações, basta consultar o ROD."
+  - text: |-
+      O ensino ministrado no Ifes observará não só os objetivos próprios de cada curso, como também os ideais e os fins da educação nacional previstos na Constituição da República Federativa do Brasil, nas Diretrizes e Bases da Educação Nacional – Lei nº 9.394/96 – e suas regulamentações, bem como na legislação que rege a Educação Profissional Técnica de Nível Médio, tendo em vista a formação integral dos educandos.
+      Para mais informações, basta consultar o ROD.
   utter_gestao_educacional:
-  - text: "O Regulamento da Organização Didática dos Cursos Técnicos do Ifes (ROD) é o documento único de gestão educacional que estabelece normas aos processos didáticos e pedagógicos desenvolvidos no Ifes.\nPara saber mais consulte o ROD!"
+  - text: |-
+      O Regulamento da Organização Didática dos Cursos Técnicos do Ifes (ROD) é o documento único de gestão educacional que estabelece normas aos processos didáticos e pedagógicos desenvolvidos no Ifes.
+      Para saber mais consulte o ROD!
   utter_educacao_profissional:
-  - text: "O Ifes desenvolve Educação Profissional e Tecnológica nos seguintes níveis: \nI - de formação inicial e continuada ou qualificação; \nII - de educação profissional técnica de nível médio; e \nIII - de educação profissional tecnológica de graduação e pós-graduação. \nPara mais informações sobre educação profissional, basta consultar o ROD."
+  - text: |-
+      O Ifes desenvolve Educação Profissional e Tecnológica nos seguintes níveis: 
+      I - de formação inicial e continuada ou qualificação; 
+      II - de educação profissional técnica de nível médio; e 
+      III - de educação profissional tecnológica de graduação e pós-graduação. 
+      Para mais informações sobre educação profissional, basta consultar o ROD.
   utter_responsabilidade_social:
   - text: O Ifes, convicto de sua responsabilidade social e em respeito às disposições legais vigentes, deverá garantir o atendimento educacional especializado e o fornecimento ou a concessão de materiais especializados e recursos humanos para os discentes público da Educação Especial, atendendo ao princípio da igualdade, como meio da garantia das condições para o acesso, a permanência, a participação e a aprendizagem.
   utter_educacao_especial:
-  - text: "O Ifes, convicto de sua responsabilidade social e em respeito às disposições legais vigentes, deverá garantir o atendimento educacional especializado e o fornecimento ou a concessão de materiais especializados e recursos humanos para os discentes público da Educação Especial, atendendo ao princípio da igualdade, como meio da garantia das condições para o acesso, a permanência, a participação e a aprendizagem. \nAlunos que se enquadram na educação especial recebem estratégias diferenciadas e flexibilização de metodologias visando maximizar seu aprendizado!"
+  - text: |-
+      O Ifes, convicto de sua responsabilidade social e em respeito às disposições legais vigentes, deverá garantir o atendimento educacional especializado e o fornecimento ou a concessão de materiais especializados e recursos humanos para os discentes público da Educação Especial, atendendo ao princípio da igualdade, como meio da garantia das condições para o acesso, a permanência, a participação e a aprendizagem. 
+      Alunos que se enquadram na educação especial recebem estratégias diferenciadas e flexibilização de metodologias visando maximizar seu aprendizado!
   utter_transferencias:
   - text: De qual das seguintes opções sobre transferência você gostaria de saber mais?
   utter_representantes:
@@ -696,9 +1087,19 @@ responses:
   utter_matricula:
   - text: De qual das seguintes opções sobre a matrícula você gostaria de saber mais sobre?
   utter_trancamento_matricula:
-  - text: "De qual das seguintes opções sobre o trancamento da matrícula você gostaria de saber mais sobre?\n\n- Sobre o trancamento de matrícula\n- Quando não posso trancar a matrícula\n- Solicitações Online"
+  - text: |-
+      De qual das seguintes opções sobre o trancamento da matrícula você gostaria de saber mais sobre?
+
+      - Sobre o trancamento de matrícula
+      - Quando não posso trancar a matrícula
+      - Solicitações Online
   utter_reintegracao_matricula:
-  - text: "De qual das seguintes opções sobre a reintegração da matrícula você gostaria de saber mais sobre?\n\n- O que é a reintegração da matrícula\n- Quando pode fazer a reintegração da matrícula\n- Solicitações Online"
+  - text: |-
+      De qual das seguintes opções sobre a reintegração da matrícula você gostaria de saber mais sobre?
+
+      - O que é a reintegração da matrícula
+      - Quando pode fazer a reintegração da matrícula
+      - Solicitações Online
   utter_regime_domiciliar:
   - text: De qual das seguintes opções sobre o regime domiciliar você gostaria de saber mais sobre?
   utter_plano_ensino:
@@ -712,7 +1113,36 @@ responses:
   utter_rod:
   - text: De qual das seguintes opções sobre o ROD você gostaria de saber mais sobre?
   utter_sistema_chamados:
-  - text: "Você pode fazer as seguintes solicitações no Sistema de Chamados:\n\n- Terceira Etapa de Matrícula,\n- Cancelamento de Matrícula,\n- Matrícula Intercampi,\n- Matrícula/Ajuste de dependência para cursos técnicos concomitantes/subsequentes,\n- Matrícula Eletiva,\n- Reabertura de matrícula,\n- Reintegração de matrícula,\n- Trancamento de matrícula,\n- Atestado de escolaridade,\n- Certidão ou Certificado de conclusão,\n- Certificado de conclusão para o CREA,\n- Colação de grau especial (em casos de urgência, conforme o ROD),\n- Colação de grau regular,\n- Diploma e Histórico Final,\n- Disciplinas Intercampi,\n- Histórico final,\n- Histórico parcial,\n- Mudança de campus, turno e/ou curso,\n- Mudança para nova matriz,\n- Nada Consta para docente,\n- Regime Domiciliar,\n- Revisão de resultado final,\n- Solicitação de aproveitamento de conhecimentos e experiências anteriores.\n\nPara fazer essas e/ou outras solicitações, acesse o site do Sistema de Chamados e faça login com o usuário e senha utilizados no Acadêmico: https://suporte.ifes.edu.br/ensino/front/helpdesk.public.php\n\nEm caso de dúvidas, acesse o manual no link <https://www.serra.ifes.edu.br/images/stories/Navegar_Perfil/Aluno/Manual_Sistemas_de_Chamados_CRA_-_Usuario.pdf>"
+  - text: |-
+      Você pode fazer as seguintes solicitações no Sistema de Chamados:
+
+      - Terceira Etapa de Matrícula,
+      - Cancelamento de Matrícula,
+      - Matrícula Intercampi,
+      - Matrícula/Ajuste de dependência para cursos técnicos concomitantes/subsequentes,
+      - Matrícula Eletiva,
+      - Reabertura de matrícula,
+      - Reintegração de matrícula,
+      - Trancamento de matrícula,
+      - Atestado de escolaridade,
+      - Certidão ou Certificado de conclusão,
+      - Certificado de conclusão para o CREA,
+      - Colação de grau especial (em casos de urgência, conforme o ROD),
+      - Colação de grau regular,
+      - Diploma e Histórico Final,
+      - Disciplinas Intercampi,
+      - Histórico final,
+      - Histórico parcial,
+      - Mudança de campus, turno e/ou curso,
+      - Mudança para nova matriz,
+      - Nada Consta para docente,
+      - Regime Domiciliar,
+      - Revisão de resultado final,
+      - Solicitação de aproveitamento de conhecimentos e experiências anteriores.
+
+      Para fazer essas e/ou outras solicitações, acesse o site do Sistema de Chamados e faça login com o usuário e senha utilizados no Acadêmico: https://suporte.ifes.edu.br/ensino/front/helpdesk.public.php
+
+      Em caso de dúvidas, acesse o manual no link <https://www.serra.ifes.edu.br/images/stories/Navegar_Perfil/Aluno/Manual_Sistemas_de_Chamados_CRA_-_Usuario.pdf>
   utter_info_ifes:
   - text: O Instituto Federal de Educação, Ciência e Tecnologia do Espírito Santo (Ifes) é uma instituição pública federal brasileira, vinculada ao Ministério da Educação, que oferece ensino médio integrado a cursos técnicos, cursos técnicos separados concomitantes ou subsequentes ao ensino médio, cursos superiores, pós, especializações e mestrado e é uma das Instituições de Ensino de maior prestígio no Brasil, além de ensino de excelência, tendo as maiores notas do Enem.
   utter_aluno_ifes:
@@ -725,17 +1155,30 @@ responses:
       title: Pós-Graduação
     text: 'Ok! Bom, os direitos e deveres dos alunos dos cursos Técnico, de Graduação e de Pós-Graduação têm algumas diferenças. Por isso, preciso que escolha de acordo com o seu curso:'
   utter_servidor_ifes:
-  - text: "Ok! Bom, eu tenho conhecimentos acerca dos direitos e deveres do aluno que constam no ROD de cada tipo de curso: Técnico, Graduação e Pós-Graduação. E também posso te encaminhar para a página dos processos seletivos.\nEscolha para onde quer ir:"
+  - text: |-
+      Ok! Bom, eu tenho conhecimentos acerca dos direitos e deveres do aluno que constam no ROD de cada tipo de curso: Técnico, Graduação e Pós-Graduação. E também posso te encaminhar para a página dos processos seletivos.
+      Escolha para onde quer ir:
   utter_externo_ifes:
-  - text: "Ok! Bom, eu tenho conhecimentos acerca dos direitos e deveres do aluno que constam no ROD de cada tipo de curso: Técnico, Graduação e Pós-Graduação.\nPosso te encaminhar para a página dos processos seletivos também. Escolha para onde quer ir:"
+  - text: |-
+      Ok! Bom, eu tenho conhecimentos acerca dos direitos e deveres do aluno que constam no ROD de cada tipo de curso: Técnico, Graduação e Pós-Graduação.
+      Posso te encaminhar para a página dos processos seletivos também. Escolha para onde quer ir:
   utter_rod_tecnico:
-  - text: "O Regulamento da Organização Didática (ROD) dos cursos Técnicos, versão 2020, pode ser encontrado no link: https://bit.ly/3sW1OfL"
+  - text: 'O Regulamento da Organização Didática (ROD) dos cursos Técnicos, versão 2020, pode ser encontrado no link: https://bit.ly/3sW1OfL'
   utter_menu_tecnico:
   - text: Você pode tirar suas dúvidas clicando nos botões abaixo ou digitando. Fique a vontade para escolher xD
   utter_rod_graduacao:
-  - text: "Ainda estou estudando o Regulamento da Organização Didática (ROD) dos cursos de Graduação.\nEm breve serei especialista nele e poderei te passar as informações corretas!\nEnquanto isso, você pode acessar o ROD pelo link https://bit.ly/3wAxCsO \n\nGostaria de saber sobre algum outro ROD?"
+  - text: |-
+      Ainda estou estudando o Regulamento da Organização Didática (ROD) dos cursos de Graduação.
+      Em breve serei especialista nele e poderei te passar as informações corretas!
+      Enquanto isso, você pode acessar o ROD pelo link https://bit.ly/3wAxCsO 
+
+      Gostaria de saber sobre algum outro ROD?
   utter_rod_pos_graduacao:
-  - text: "Ainda estou estudando o Regulamento da Organização Didática (ROD) dos cursos de Pós-Graduação.\nEm breve serei especialista nele e poderei te passar as informações corretas!\nEnquanto isso, você pode acessar o ROD pelo link https://bit.ly/3s0j0j4 \nGostaria de saber sobre algum outro ROD?"
+  - text: |-
+      Ainda estou estudando o Regulamento da Organização Didática (ROD) dos cursos de Pós-Graduação.
+      Em breve serei especialista nele e poderei te passar as informações corretas!
+      Enquanto isso, você pode acessar o ROD pelo link https://bit.ly/3s0j0j4 
+      Gostaria de saber sobre algum outro ROD?
   utter_processo_seletivo:
   - text: 'Você pode acessar a página de Processos Seletivos no link: https://ifes.edu.br/processosseletivos'
 actions:
@@ -904,7 +1347,7 @@ actions:
 - action_externo_ifes
 forms:
   nome_form:
-    primeiro_nome:
-    - type: from_text
+    required_slots:
+      primeiro_nome:
+      - type: from_text
 e2e_actions: []
-version: '2.0'
