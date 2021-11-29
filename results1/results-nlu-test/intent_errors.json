@@ -1,0 +1,170 @@
+[
+  {
+    "text": "Tudo bem?",
+    "intent": "como_esta",
+    "intent_prediction": {
+      "name": "esta_feliz",
+      "confidence": 0.6640015840530396
+    }
+  },
+  {
+    "text": "Nothing",
+    "intent": "dizer_nada",
+    "intent_prediction": {
+      "name": "monitoria",
+      "confidence": 0.5938238501548767
+    }
+  },
+  {
+    "text": "trancamento da minha matrícula",
+    "intent": "trancamento_matricula_sobre",
+    "intent_prediction": {
+      "name": "trancamento_matricula",
+      "confidence": 0.7101283073425293
+    }
+  },
+  {
+    "text": "sobre trancar matrícula",
+    "intent": "trancamento_matricula_sobre",
+    "intent_prediction": {
+      "name": "trancamento_matricula",
+      "confidence": 0.5118927955627441
+    }
+  },
+  {
+    "text": "1",
+    "intent": "transferencias",
+    "intent_prediction": {
+      "name": "avaliacoes",
+      "confidence": 0.3178149461746216
+    }
+  },
+  {
+    "text": "2",
+    "intent": "representantes",
+    "intent_prediction": {
+      "name": "avaliacoes",
+      "confidence": 0.3178149461746216
+    }
+  },
+  {
+    "text": "4",
+    "intent": "pontuacoes",
+    "intent_prediction": {
+      "name": "avaliacoes",
+      "confidence": 0.3178149461746216
+    }
+  },
+  {
+    "text": "5",
+    "intent": "dependencia",
+    "intent_prediction": {
+      "name": "avaliacoes",
+      "confidence": 0.3178149461746216
+    }
+  },
+  {
+    "text": "6",
+    "intent": "revisao_notas",
+    "intent_prediction": {
+      "name": "avaliacoes",
+      "confidence": 0.3178149461746216
+    }
+  },
+  {
+    "text": "7",
+    "intent": "dias_letivos",
+    "intent_prediction": {
+      "name": "avaliacoes",
+      "confidence": 0.3178149461746216
+    }
+  },
+  {
+    "text": "8",
+    "intent": "matricula",
+    "intent_prediction": {
+      "name": "avaliacoes",
+      "confidence": 0.3178149461746216
+    }
+  },
+  {
+    "text": "me fala da reintegração da matrícula",
+    "intent": "reintegracao_matricula",
+    "intent_prediction": {
+      "name": "reintegracao_matricula_condicoes",
+      "confidence": 0.45135319232940674
+    }
+  },
+  {
+    "text": "desfazer o cancelamento da minha matrícula",
+    "intent": "reintegracao_matricula",
+    "intent_prediction": {
+      "name": "reintegracao_matricula_sobre",
+      "confidence": 0.7095063328742981
+    }
+  },
+  {
+    "text": "9",
+    "intent": "regime_domiciliar",
+    "intent_prediction": {
+      "name": "avaliacoes",
+      "confidence": 0.3178149461746216
+    }
+  },
+  {
+    "text": "10",
+    "intent": "plano_ensino",
+    "intent_prediction": {
+      "name": "avaliacoes",
+      "confidence": 0.3178149461746216
+    }
+  },
+  {
+    "text": "11",
+    "intent": "calendario_academico",
+    "intent_prediction": {
+      "name": "avaliacoes",
+      "confidence": 0.3178149461746216
+    }
+  },
+  {
+    "text": "12",
+    "intent": "segunda_chance_avaliacao",
+    "intent_prediction": {
+      "name": "avaliacoes",
+      "confidence": 0.3178149461746216
+    }
+  },
+  {
+    "text": "13",
+    "intent": "reuniao_pedagogica",
+    "intent_prediction": {
+      "name": "avaliacoes",
+      "confidence": 0.3178149461746216
+    }
+  },
+  {
+    "text": "14",
+    "intent": "rod",
+    "intent_prediction": {
+      "name": "avaliacoes",
+      "confidence": 0.3178149461746216
+    }
+  },
+  {
+    "text": "15",
+    "intent": "SC_geral",
+    "intent_prediction": {
+      "name": "avaliacoes",
+      "confidence": 0.3178149461746216
+    }
+  },
+  {
+    "text": "Jurema",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "prazos_entregas_avaliacoes",
+      "confidence": 0.020526165142655373
+    }
+  }
+]

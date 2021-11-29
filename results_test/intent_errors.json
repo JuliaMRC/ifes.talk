@@ -1,0 +1,154 @@
+[
+  {
+    "text": "Tudo bem",
+    "intent": "esta_feliz",
+    "intent_prediction": {
+      "name": "como_esta",
+      "confidence": 0.6332059502601624
+    }
+  },
+  {
+    "text": "1",
+    "intent": "transferencias",
+    "intent_prediction": {
+      "name": "rod",
+      "confidence": 0.16294069588184357
+    }
+  },
+  {
+    "text": "Representante da turma",
+    "intent": "representantes",
+    "intent_prediction": {
+      "name": "representantes_da_turma",
+      "confidence": 0.4949675500392914
+    }
+  },
+  {
+    "text": "[líder da turma]",
+    "intent": "representantes",
+    "intent_prediction": {
+      "name": "representantes_da_turma",
+      "confidence": 0.9043557643890381
+    }
+  },
+  {
+    "text": "2",
+    "intent": "representantes",
+    "intent_prediction": {
+      "name": "rod",
+      "confidence": 0.16294069588184357
+    }
+  },
+  {
+    "text": "3",
+    "intent": "avaliacoes",
+    "intent_prediction": {
+      "name": "rod",
+      "confidence": 0.16294069588184357
+    }
+  },
+  {
+    "text": "4",
+    "intent": "pontuacoes",
+    "intent_prediction": {
+      "name": "rod",
+      "confidence": 0.16294069588184357
+    }
+  },
+  {
+    "text": "5",
+    "intent": "dependencia",
+    "intent_prediction": {
+      "name": "rod",
+      "confidence": 0.16294069588184357
+    }
+  },
+  {
+    "text": "6",
+    "intent": "revisao_notas",
+    "intent_prediction": {
+      "name": "rod",
+      "confidence": 0.16294069588184357
+    }
+  },
+  {
+    "text": "7",
+    "intent": "dias_letivos",
+    "intent_prediction": {
+      "name": "rod",
+      "confidence": 0.16294069588184357
+    }
+  },
+  {
+    "text": "8",
+    "intent": "matricula",
+    "intent_prediction": {
+      "name": "rod",
+      "confidence": 0.16294069588184357
+    }
+  },
+  {
+    "text": "sobre trancar uma matrícula",
+    "intent": "trancamento_matricula",
+    "intent_prediction": {
+      "name": "trancamento_matricula_sobre",
+      "confidence": 0.6346638202667236
+    }
+  },
+  {
+    "text": "9",
+    "intent": "regime_domiciliar",
+    "intent_prediction": {
+      "name": "rod",
+      "confidence": 0.16294069588184357
+    }
+  },
+  {
+    "text": "10",
+    "intent": "plano_ensino",
+    "intent_prediction": {
+      "name": "rod",
+      "confidence": 0.16294069588184357
+    }
+  },
+  {
+    "text": "11",
+    "intent": "calendario_academico",
+    "intent_prediction": {
+      "name": "rod",
+      "confidence": 0.16294069588184357
+    }
+  },
+  {
+    "text": "12",
+    "intent": "segunda_chance_avaliacao",
+    "intent_prediction": {
+      "name": "rod",
+      "confidence": 0.16294069588184357
+    }
+  },
+  {
+    "text": "13",
+    "intent": "reuniao_pedagogica",
+    "intent_prediction": {
+      "name": "rod",
+      "confidence": 0.16294069588184357
+    }
+  },
+  {
+    "text": "15",
+    "intent": "SC_geral",
+    "intent_prediction": {
+      "name": "rod",
+      "confidence": 0.16294069588184357
+    }
+  },
+  {
+    "text": "Jurema",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "sumario_rod",
+      "confidence": 0.02265687845647335
+    }
+  }
+]

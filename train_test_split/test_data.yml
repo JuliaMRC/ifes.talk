@@ -1,0 +1,1123 @@
+version: "2.0"
+nlu:
+- intent: nlu_fallback
+  examples: |
+    - [Jurema](nome_usuario)
+- intent: prazer
+  examples: |
+    - prazer
+- intent: fallback
+  examples: |
+    - Algo desconhecido
+- intent: info_ifes
+  examples: |
+    - gostaria de saber o que significa [ifes]
+- intent: voltar
+  examples: |
+    - voltar
+- intent: SC_ajuste_dp
+  examples: |
+    - Como o [aluno] pode fazer ajuste de dependencia [na internet]
+- intent: dependencia
+  examples: |
+    - 5
+- intent: saber_as_horas
+  examples: |
+    - Qual o horário do momento?
+- intent: SC_matricula
+  examples: |
+    - Como o [aluno] pode realizar matricula [online]
+- intent: SC_matricula_intercampi
+  examples: |
+    - Como o [estudante] realiza matricula intercampi [no site]
+- intent: SC_matricula_dependencia
+  examples: |
+    - como [faço] matrícula de dependência [online]
+    - Como o [estudante] realiza matricula de dependencia [no site]
+- intent: SC_matricula_eletiva
+  examples: |
+    - como [faezr] matrícula eletiva [online]
+- intent: SC_trancamento_matricula
+  examples: |
+    - como trancar matricula [online]
+    - como [faço] pra trancar matricula [online]
+- intent: SC_certificado_conclusao_crea
+  examples: |
+    - certificado de conclusao para o crea [no sistema de chamados]
+- intent: SC_disciplina_intercampi
+  examples: |
+    - Disciplina intercampi [online]
+- intent: me_ajuda
+  examples: |
+    - me ajuda
+    - Help me
+- intent: minha_license
+  examples: |
+    - Fala sobre licenses por favor
+    - Qual license vc usa?
+- intent: processos_pedagogicos_e_didaticos
+  examples: |
+    - [Pedagogico]
+- intent: educacao_nacional_constituicao_form_integral
+  examples: |
+    - educaçao nacional
+    - constituicao
+- intent: dias_letivos
+  examples: |
+    - dias de aula
+- intent: matricula
+  examples: |
+    - sobre matrícula
+    - informações matrícula
+- intent: SC_terceira_etapa_matricula
+  examples: |
+    - Como o [estudante] realiza matricula [no site]
+    - Como [fazer] a terceira etapa da matricula [online]
+- intent: SC_colacao_grau_especial
+  examples: |
+    - quero fazer pedido de colação de grau especial [pela internet]
+- intent: dependencia_condicoes
+  examples: |
+    - tirei menos que 60 [pontos] no [semestre]
+    - como fico de [dp]
+- intent: prazo_regime_domiciliar_laudo_medico
+  examples: |
+    - quanto tempo tenho para entregar o atestado do [regime domiciliar]
+    - prazo para apresentar o atestado para o [regime domiciliar]
+- intent: tit_outras_atividades_ensino
+  examples: |
+    - Artigos que abrangem as outras atividades de ensino
+    - Local q fala d outras atividades de ensino no [rod] atual
+- intent: gestao_educacional
+  examples: |
+    - gerenciamento educacional
+- intent: educacao_especial
+  examples: |
+    - didatica especial
+    - instrução especial
+- intent: pontuacoes
+  examples: |
+    - Quantos [pontos] tem?
+    - [Pontos] total
+- intent: trancamento_matricula
+  examples: |
+    - trancamento da matricula
+    - trancar a matrícula
+- intent: reintegracao_matricula
+  examples: |
+    - cancelar a matrícula e re ativar ele
+    - matrícula reintegração
+- intent: SC_cancelamento_matricula
+  examples: |
+    - Quero fazer cancelamento de matrícula [online]
+- intent: SC_colacao_grau
+  examples: |
+    - [Pedido] de colação de grau [pelo site]
+    - como fazer pedido de colação de grau [pelo academico]
+- intent: externo_ifes
+  examples: |
+    - nao sou aluno
+    - ainda nao sou do ifes
+- intent: esta_feliz
+  examples: |
+    - Estou bem
+    - Tudo bem
+- intent: esta_triste
+  examples: |
+    - Não muito bem
+    - To meio triste
+- intent: condicoes_aprovacao
+  examples: |
+    - o que é preciso para eu passar em uma [matéria]?
+    - quando serei aprovado em uma [disciplina]
+- intent: avaliacoes
+  examples: |
+    - sobre [avaliações]
+    - as [avaliações]
+- intent: SC_reabertura_matricula
+  examples: |
+    - Como o [aluno] pode fazer reabertura de matricula [na internet]
+    - como reabrir matricula [pelo site]
+- intent: SC_atestado_escolaridade
+  examples: |
+    - atestado de escolaridade [na internet]
+    - como requerir atestado de escolaridade [na internet]
+- intent: dizer_nada
+  examples: |
+    - Esquece
+    - É nada
+- intent: promocao_parcial
+  examples: |
+    - o que acontece se eu ficar reprovado em duas matérias
+    - o que acontece se eu ficar [reprovado] em uma disciplina
+- intent: numero_dias_letivos
+  examples: |
+    - em um ano devem ter quantos dias letivos?
+    - quantidade de dias letivos no ano
+    - Qual o número mínimo de dias letivos no ano?
+- intent: quando_sou_aluno
+  examples: |
+    - quando sou definitivamente [aluno] do ifes
+    - após eu fazer a matrícula já sou considerado [aluno]
+- intent: regime_domiciliar_efetivacao
+  examples: |
+    - quando o meu [regime domiciliar] passa a valer
+    - Quando é efetivado [regime domiciliar]
+- intent: responsabilidade_social
+  examples: |
+    - social responsabilidade
+    - recursos humanos
+- intent: plano_ensino
+  examples: |
+    - me fala sobre os planos de ensino
+    - Plano de ensino
+- intent: calendario_academico
+  examples: |
+    - calendario de aulas
+    - sobre o calendário academico
+    - dê-me informações acerca do calendário acadêmico
+- intent: reuniao_pedagogica
+  examples: |
+    - me fala sobre as reunioes pedagógicas
+    - 13
+- intent: SC_reintegracao_matricula
+  examples: |
+    - Como o [estudante] pode realizar reintegração de matricula [no site]
+    - reintegrar matricula [no site]
+- intent: SC_certidao_conclusao
+  examples: |
+    - Quero pedir [certificado] de conclusao [no sistema de chamados]
+    - [Certidão] de conclusão [pelo site]
+- intent: saber_piada
+  examples: |
+    - Me conta uma piada
+    - Conte alguma coisa engraçado
+    - conte uma piada por favot
+- intent: representantes_reunioes
+  examples: |
+    - reunioes dos [representantes]
+    - Reuniões dos [representantes]
+- intent: representantes_da_turma
+  examples: |
+    - quem deve ser o [líder] de turma
+    - minha turma tem que ter um [líder]?
+- intent: prazos_entregas_avaliacoes
+  examples: |
+    - quando tempo o professor tem para a correção das [provas]?
+    - em quanto tempo o professor deve postar as notas das [provas]
+    - prazos postagem das notas de [prova]
+- intent: calendario_academico_conteudo
+  examples: |
+    - informaçoes do Calendario acadêmico
+    - Quais informações precisam estar no Calendario Academico
+- intent: segunda_chance_avaliacao_discente
+  examples: |
+    - É possível eu pedir uma outra [prova] para mim?
+    - Pode ser aplicada outra [prova] para mim?
+    - Posso pedir para fazer uma [prova] separada como outra chance?
+- intent: estudantes_distancia_avaliacao_rendimento
+  examples: |
+    - Como é avaliado o quanto estão indo bem os [alunos] estudando a distância?
+    - Como determinam o quanto alguem esta indo bem estudando ead?
+- intent: regime_domiciliar
+  examples: |
+    - atendimento em casa
+    - atendimento domiciliar
+- intent: rod
+  examples: |
+    - gostaria de saber acerca do [ROD]
+    - [rod] sendo usado atualmente
+    - [rod]
+- intent: SC_mudanca_campus_turno_curso
+  examples: |
+    - Como solicito mudança de [curso] [no site do ifes]
+    - Mudança de [campus] [online]
+- intent: menu
+  examples: |
+    - opcão
+    - opçoes
+    - opcões
+- intent: mudanca_turma
+  examples: |
+    - [Mudança] de turma
+    - quero [trocar] de turma
+- intent: ficar_retido
+  examples: |
+    - Quando fico [retido]
+    - como [repito] o mesmo ano?
+    - Como funciona a [reprovação]?
+- intent: chamada_suplentes
+  examples: |
+    - em quanto tempo os suplentes são chamados
+    - qual o período para os suplentes serem chamados
+    - como ocorre a chamada de suplentes?
+- intent: plano_ensino_contem
+  examples: |
+    - oq é obrigatório estar no Plano de Ensino
+    - conteudo plano ensino
+- intent: reuniao_pedagogica_membros
+  examples: |
+    - pessoas envolvidas nas reuniões pedagocias
+    - Quem pode atender as reunioes pedagogicas?
+    - Quem participa das 3 reunioes pedagógicas?
+- intent: corpo_discente
+  examples: |
+    - como fazer parte do corpo discente
+    - Corpo Discente
+- intent: tit_organizacoes_orientacoes_discentes
+  examples: |
+    - Qual o artigo do [rod] que fala das organizações e orientações discentes?
+    - em qual título do [rod] fala das organizações e orientações discentes
+    - título organizações e orientações discentes
+- intent: SC_geral
+  examples: |
+    - como conseguir documentos [pelo site]
+    - Sistema de chamados
+    - solicitacoes online
+- intent: SC_diploma_historico_final
+  examples: |
+    - Diploma e historico final [no sistema de chamados]
+    - Como o [aluno] pode solicitar diploma e historico final [na internet]
+- intent: conteudos_avaliacoes
+  examples: |
+    - o que é cobrado na [avaliação]
+    - O que é considerado na [avaliação] escolar?
+    - o que deve ser cobrado nas [avaliações]?
+- intent: pontuacao_semestral
+  examples: |
+    - quanto vale o semestre
+    - Sobre pontuação semestral
+    - quantos [pontos] totais um semestre pode ter?
+- intent: documentos_matricula
+  examples: |
+    - quais documentos preciso para fazer a matrícula
+    - Que documentos são usados para realizar minha matrícula?
+    - documentos que o [aluno] precisa ter para realizar a matrícula
+- intent: coeficiente_rendimento
+  examples: |
+    - Qual meu coeficiente de rendimento?
+    - Qual o cálculo do coeficiente rendimento
+- intent: matricula_sobre
+  examples: |
+    - Sobre a matriculacao do ifes
+    - oq e a matricla
+    - o que e a matricula?
+- intent: registro_informacoes_no_academico
+  examples: |
+    - estudo a distância, o professor tem que registrar oq no site do academico?
+    - academico faltas
+    - tempo do professor postar informações no Q-acadêmico
+- intent: monitoria
+  examples: |
+    - como um [aluno]pode dar aula para outro [aluno]?
+    - oq é a monitoria?
+    - vagas da monitoria funcionam como?
+- intent: estagio
+  examples: |
+    - me conta como funciona o estágio
+    - Estágio obrigatório
+    - sobre o Estagio
+- intent: tit_intercambio_academico
+  examples: |
+    - Em qual parte do [Rod] 2020 fala do intercâmbio
+    - Local q fala d intercâmbio no [rod] atual
+- intent: educacao_profissional
+  examples: |
+    - FIC
+    - qualificacao
+    - formação fic
+- intent: SC_historico_final
+  examples: |
+    - Quero saber em qual site solicito historico final
+    - site historico final
+    - onde [peço] historico final
+- intent: SC_historico_parcial
+  examples: |
+    - Quero solicitar historico parcial
+    - Hisórico parcial [online]
+    - Solicitar historico parcial [pela internet]
+- intent: aluno_ifes
+  examples: |
+    - Sou estudante do ifes
+    - sou aluna
+    - sou aluna do ifes
+- intent: despedir
+  examples: |
+    - Bye
+    - tchau
+    - flw
+- intent: negar
+  examples: |
+    - incorreto
+    - N é
+    - n, obg
+- intent: agradecer
+  examples: |
+    - Obrigada
+    - Obg
+    - agradecido
+- intent: minha_religiao
+  examples: |
+    - qual seu religião?
+    - Qual tua religiao?
+    - Você acredita em algo?
+- intent: frequencia_minima
+  examples: |
+    - Qual a frequência mínima obrigatória ?
+    - qual o percentual de presença obrigatória
+    - quantidade máxima de faltas que eu posso ter
+- intent: aproveitamento_disciplinas
+  examples: |
+    - aproveitamento de [disciplinas]
+    - sobre aproveitamento de [matérias]
+    - reaproveitar as [matérias] que eu já cursei
+- intent: cumprimento
+  examples: |
+    - oi
+    - [Olá]
+    - [bom dia]
+- intent: rod_geral
+  examples: |
+    - Me explica a função do [rod]
+    - Oq eh o [rod]?
+    - [normas]
+- intent: pontuacao_trimestral
+  examples: |
+    - [pontuação] do trimestre
+    - Sobre [pontuação] trimestral
+    - [Pontuação] trimestral
+- intent: pontuacao_bimestral
+  examples: |
+    - quanto cada bimestre deve valer
+    - [pontuação] do bimestre
+    - o bimestre vale quantos [pontos]?
+- intent: reuniao_pedagogica_inicial
+  examples: |
+    - qual a razao da reuniao pedagogica inicial
+    - como acontece a primeira reuniao pedagogica
+    - informacoes da reuniao pedagogica inicial
+- intent: reuniao_pedagogica_intermediaria
+  examples: |
+    - q tp de coisa eh discutida na reuniao pedagogica do meio do ano?
+    - sobre reuniao pedagogica intermediaria
+    - Oq falam sobre na 2a reuniao pedagogica?
+- intent: tit_cap_periodo_letivo
+  examples: |
+    - capitulo período letivo
+    - [rod] capitulo que aborda período letivo
+    - Em qual capitulo do [ROD2020] é falado sobre o período letivo?
+- intent: tit_cap_atendimento_domiciliar
+  examples: |
+    - Qual o capítulo do atendimento domiciliar?
+    - Local q fala d atendimento domiciliar no [rod] atual
+    - Artigos que abrangem o atendimento domiciliar
+- intent: tit_cap_reunioes_pedagogicas
+  examples: |
+    - Onde fala das reuniões pedagógicas no [rod2020]?
+    - Qual o capítulo que fala das reuniões pedagógicas?
+    - Qual o cap. que fala das reuniões pedagógicas?
+- intent: tit_cap_estagio_curricular
+  examples: |
+    - Qual a parte do [rod] atual que fala do estágio curricular?
+    - Quais os artigos do [rod] que falam do estágio curricular?
+    - Em qual parte do [Rod 2020] fala do estágio curricular
+- intent: tit_certificados_diplomas
+  examples: |
+    - Artigos que abrangem os certificados e diplomas
+    - Onde fala dos certificados e diplomas no [rod2020]
+    - em qual título do [rod] fala dos certificados?
+- intent: segunda_chance_avaliacao
+  examples: |
+    - segunda chance de [prova]
+    - segunda chance de [avaliacao]
+    - [avaliação] segunda chance
+- intent: SC_mudanca_matriz
+  examples: |
+    - Quero solicitar [transferencia] de matriz [pelo sistema de chamados]
+    - Como fazer solicitação de [mudança] de matriz [no site]
+    - [Mudança] Matriz [online]
+- intent: processo_seletivo
+  examples: |
+    - PS 2021
+    - Prosesso seletivo
+    - Proceso seletivo
+- intent: como_esta
+  examples: |
+    - estas bem?
+    - como c ta?
+    - Esta bem?
+- intent: mudanca_modalidade_presencial_distancia
+  examples: |
+    - mudança para [modalidade presencial]
+    - mudança para [modalidade a distancia]
+    - Posso mudar de um [curso presencial] para um à [distância] ou vice-versa?
+- intent: mudanca_curso
+  examples: |
+    - quero [trocar] de curso
+    - quero [transferir] de curso
+    - [transferência] de curso
+- intent: regime_domiciliar_gravidas
+  examples: |
+    - alunas grávidas podem ter direito ao [regime domiciliar]
+    - aluna grávida tem direito ao [regime domiciliar]
+    - Aluna gestante tem direito ao [regime domiciliar]?
+- intent: reuniao_pedagogica_final
+  examples: |
+    - reuniao pedagogica final
+    - Oq falam sobre na 3a reuniao pedagogica?
+    - Oq é discutido na reuniao pedagogica final
+    - como acontece a terceira reuniao pedagogica
+- intent: reuniao_pedagogica_quantidade
+  examples: |
+    - Quantidade de reuniões pedagógicas
+    - Mínimo reunioes pedagógicas
+    - Podem marcar quantas reunioes pedagógicas
+- intent: tit_cap_rod
+  examples: |
+    - onde fala do [rod] no [rod]?
+    - Quais os artigos do [rod] que falam do [rod]?
+    - Em qual capitulo do [ROD2020] é falado sobre o [rod]?
+- intent: sumario_rod
+  examples: |
+    - fala todos os capítulos do [rod]
+    - resume pra mim aí os capitulos do [rod]
+    - me apresenta os capítulos do [rod] atual
+- intent: rod_tecnico
+  examples: |
+    - Regulamento cursos tecnicos
+    - Regulamento tecnico
+    - sou aluno tecnico
+- intent: mudanca_turno
+  examples: |
+    - [trocar] de [turno]
+    - como faço para [trocar] de [turno]
+    - mudança de turno
+    - como estudo de [manha]
+- intent: periodo_maximo_conclusao
+  examples: |
+    - tenho algum tempo para concluir o curso
+    - em quanto tempo devo concluir meu curso
+    - tempo para concluir o curso
+- intent: regime_domiciliar_sobre
+  examples: |
+    - sobre atendimento domiciliar
+    - estou passando mal
+    - sobre regime domiciliar
+    - tenho que ficar 30 dias sem ir a aula pois estou doente
+- intent: tempo_oferta_aulas
+  examples: |
+    - Em que horários do dia podem ter aulas?
+    - Quais os turnos que pode oferecer aulas?
+    - Quais dias podem ter aula?
+- intent: calendario_academico_localizacao
+  examples: |
+    - localizacao do calendario academico
+    - Onde é possível visualizar o calendário acadêmico
+    - local calendario academico
+- intent: ifes_condicoes
+  examples: |
+    - Quantas vagas tem cada curso?
+    - quais os jeitos de entrar no ifes?
+    - como entrar no ifes
+    - como ser candidato para o ifes?
+- intent: preenchimento_vagas_discentes_ifes
+  examples: |
+    - como preencher alguma vaga sendo que sou um [aluno] ifes
+    - preenchimento de vagas ociosas
+    - Se sobrar alguma vaga durante a escola, como são preenchidos
+- intent: representantes
+  examples: |
+    - [líderes de turma]
+    - representantes da turma
+    - representante de turma
+    - repre de turma
+- intent: revisao_notas
+  examples: |
+    - revisao notas
+    - revisar a [nota] que consegui
+    - revisar a [nota] que tive
+- intent: musica
+  examples: |
+    - C gosta de música?
+    - Tem alguma playlist pra recomendar?
+    - Você gosta de que tipo de música?
+    - Me fale quais músicas você gosta
+- intent: transferencia_de_outra_escola
+  examples: |
+    - Já comecei o Ensino Médio em outra instituição, mas queria me [transferir] para o Ifes. Como faço?
+    - [transferencia] de outra instituicao pro ifes
+    - [transferencia] de outra escola pro ifes
+- intent: quantidade_avaliacoes
+  examples: |
+    - tem um mínimo de [provas] que precisam ser aplicadas?
+    - quantidade [avalicoes]
+    - quantas [provas] deve ter
+    - Quantidade mínima [provas]
+- intent: disciplinas_optativas
+  examples: |
+    - [matéria] extra
+    - sobre [disciplina] optativa
+    - como faço para me matricular em uma [matéria] optativa
+- intent: desistente
+  examples: |
+    - o que é preciso acontecer para um [aluno] ser considerado desistente
+    - quais motivos para o [aluno] ser considerado desistente
+    - e se eu não for nos primeiros dias de aula?
+    - quando o [aluno] passa a ser considerado desistente
+- intent: regime_domiciliar_condicoes
+  examples: |
+    - qnd posso solicitar o regime domiciliar
+    - em que casos eu tenho direito ao [regime domiciliar]?
+    - posso pedir o [regime domiciliar]?
+    - situações que tenho direito ao [atendimento domiciliar]
+- intent: tit_cap_cursos_curriculos_planos_ensino
+  examples: |
+    - Em qual capitulo do [ROD2020] é falado sobre os planos de ensino?
+    - Que artigos falam sobre os cursos
+    - Onde fala da organização didática no [rod]?
+- intent: tit_cap_transferencias_adaptacoes
+  examples: |
+    - [rod] capitulo que aborda transferências e adaptações
+    - em qual capitulo do [rod] é falado sobre as transferências e adaptações?
+    - Qual o capítulo que fala das transferências?
+    - Qual o cap. que fala das transferências e adaptações?
+- intent: tit_disposicoes_gerais_transitorias
+  examples: |
+    - em qual título do [rod] fala das disposições gerais e transitórias
+    - em qual título do [rod] fala das disposições gerais?
+    - título disposições gerais e transitórias
+- intent: rod_graduacao
+  examples: |
+    - sou do curso de graduacao
+    - sou aluno da graduação
+    - ROD graduacao
+    - faço graduação
+- intent: pontuacao_avaliacoes
+  examples: |
+    - [valor] máximo [avaliações]
+    - quantos [pontos] as [provas] podem valer?
+    - [valores] mínimo das [provas]
+    - pontuacoes das [avaliacoes]
+- intent: quando_proibido_trancamento_matricula
+  examples: |
+    - Quando não posso trancar matrícula
+    - quando nao posso trancar matricula
+    - em que casos eu não posso trancar a minha matrícula
+    - quando não pode trancar matricula
+- intent: prazo_matricula
+  examples: |
+    - Prazo para efetivar
+    - quanto tempo tenho para realizar a minha matrícula
+    - Prazo p/ efetivar
+- intent: transferencias
+  examples: |
+    - mudanças
+    - quero saber como fazer uma [transferência]
+    - como posso [transferir]?
+    - como faço uma [transferência]?
+- intent: rod_pos_graduacao
+  examples: |
+    - curso pos graduação
+    - Regulamento cursos de pos graduacao
+    - ensino superior pos graduação
+    - faço pós graduação
+- intent: meu_genero
+  examples: |
+    - Me fale seu sexo
+    - Você é um homem?
+    - Qual seu sexo?
+    - Qual é seu genero?
+- intent: reintegracao_matricula_sobre
+  examples: |
+    - o q e reintegracao de matricula
+    - Definição reintegração da matrícula
+    - O que é reintegração da matrícula
+    - oq é a reintegracao da matricula
+- intent: rod_2020_validade
+  examples: |
+    - validade [ROD]
+    - Quando eles trocam o [rod]?
+    - Qual a validade do [rod]?
+    - Validade do [ROD]
+- intent: SC_regime_domiciliar
+  examples: |
+    - [Fazer] solicitação de [regime domiciliar] [online]
+    - [Fazer] pedido de [regime domiciliar] [online]
+    - Solicitação de [regime domiciliar] [na internet]
+    - Solicitar [regime domiciliar] [no academico]
+- intent: meu_objetivo
+  examples: |
+    - Qual seu objetivo??
+    - Me fala seu objetivo
+    - Aí, qual teu objetivo?
+    - Qual seu objetivo?
+- intent: recuperacao
+  examples: |
+    - Como são aplicados os estudos de recuperação ?
+    - qual o mínimo de [pontos] do boletim que preciso para fazer recuperação?
+    - Qual o conteúdo dos estudos de recuperação ?
+    - quando é aplicada a recuperação
+- intent: revisao_notas_parciais
+  examples: |
+    - revisao das [notas] das [avaliacoes]
+    - não concordo com a [nota] da [prova]
+    - não concordo com a [nota] da minha [avaliação]
+    - eu posso pedir a revisão da [nota] da minha [prova]
+    - quero pedir revisão da [nota] da minha [avaliação]
+- intent: tit_cap_modalidades
+  examples: |
+    - [rod] capitulo que fala sobre avaliação de aprendizagem
+    - Local q fala da verificação de rendimento escolar
+    - Que artigos falam sobre as modalidades
+    - em qual capitulo do [rod] é falado sobre as modalidades?
+- intent: SC_nada_consta
+  examples: |
+    - Como o [estudante] solicita nada consta [no site]
+    - Quero solicitar nada consta [online]
+    - Como [faço] para solicitar nada consta [pelo site]
+    - Quero [fazer] pedido de nada consta [pela internet]
+- intent: reintegracao_matricula_condicoes
+  examples: |
+    - Condições para reintegracao de matricula
+    - Se eu reprovar por falta, posso continuar estudando?
+    - qnd pode fzr a reintegração da matrícula?
+    - É possível voltar a ser [aluno] IFES após cancelado por alguma razao?
+- intent: reuniao_pedagogica_sobre
+  examples: |
+    - o que é reuniao pedagogica
+    - o que são reunião
+    - O que sao as reunioes pedagogicas
+    - oq rola numa reuniao pedagogica?
+    - o que é reunião pedagógica
+- intent: SC_revisao_resultado_final
+  examples: |
+    - Como o [aluno] pode pedir revisão do resultado final [na internet]
+    - Solicitação de revisão da nota final [na internet]
+    - Revisão da nota final [online]
+    - Revisão do resultado final [online]
+- intent: me_elogiar
+  examples: |
+    - parabéns, amei
+    - Que épico!
+    - tu é linda
+    - Te acho espetacular
+    - Muito incrível
+- intent: revisao_notas_finais
+  examples: |
+    - revisão da [nota] final
+    - quero pedir revisão do meu resultado final
+    - posso pedir revisão da [nota] do [semestre]
+    - tenho direito a pedir a revisão do resultado final
+    - tenho direito de pedir revisão da minha [nota] final
+- intent: trancamento_matricula_sobre
+  examples: |
+    - como é o procedimento de trancamento de matrícula
+    - sobre trancamento de matricula
+    - como o [estudante] pode trancar matricula
+    - sobre o trancamento de matricula
+- intent: cancelamento_matricula
+  examples: |
+    - cancelamento da minha matrícula
+    - a minha matrícula pode ser cancelada
+    - Motivos cancelamento matrícula
+    - cancelamento de matrícula
+    - por que motivo a matricula do [estudante] pode ser cancelada
+- intent: oferta_cursos
+  examples: |
+    - cursos como EJA
+    - Os cursos podem ser ofertados de que forma?
+    - oferta cursos
+    - subsequente
+    - Que tipos de modalidade os cursos podem ter
+- intent: servidor_ifes
+  examples: |
+    - coordenador
+    - Servidor
+    - Trabalho no ifes
+    - coordenadora
+    - sou cordenadora
+- intent: transferencia_para_outra_escola
+  examples: |
+    - [mudansa] do ifes
+    - me [mudar] para outra escola
+    - [mudança] do ifes para outra instituição
+    - [mudanca] do ifes
+    - quero sair do ifes
+- intent: segunda_chance_avaliacao_turma
+  examples: |
+    - Segunda chance da turma fazer uma [avaliacao]
+    - Oq fazemos se a maioria da sala foi mal na [prova]
+    - segunda chance avaliacao para sala
+    - Se minha turma foi mal numa [avaliativa], podemos refazer?
+    - Caso uma sala inteira va mal na [prova], pode ter uma outra [avaliacao]?
+- intent: dependencia_geral
+  examples: |
+    - oq e a dependência
+    - como o [dp] funciona?
+    - oq é a dp
+    - O que é a dependência
+    - O que é a dependencia
+- intent: renovacao_matricula
+  examples: |
+    - a [rematrícula] é feita automaticamente?
+    - Como é feita a [rematrícula]?
+    - posso renovar minha matrícula?
+    - como faço a [rematrícula]?
+    - como é feita a [renovação de matrícula]?
+- intent: mudanca_campus
+  examples: |
+    - [mudar] de campi
+    - fale sobre a [mudança] de campus
+    - [Mudança] de Campus
+    - [transferência] entre os ifes
+    - como [troco] de campus?
+    - [mudar] de campus
+- intent: afirmar
+  examples: |
+    - com ctz
+    - claro
+    - sim
+    - certo
+    - pode sim
+- intent: conteudos_avaliacoes_necessidadades_especificas
+  examples: |
+    - [avaliaçoes] para pessoas [ne]
+    - [avaliação] para pessoas [ne]
+    - [avaliaçao] para pessoas com [necessidades especificas]
+    - o que deve ser cobrado na [avaliação] de [alunos] com [necessidades específicas]
+    - [avaliacoes] para pessoas com [necessidades específicas]
+    - [Avaliações] para pessoas [ne]
+- intent: tit_cap_admissao_matricula
+  examples: |
+    - Local q fala d admissão e matrícula no [rod] atual
+    - Quais os artigos do [rod] que falam da admissão e matrícula?
+    - onde fala da renovação da matrícula no [ROD 2020]
+    - Que artigos falam sobre a admissão e matrícula
+    - [rod] capitulo que fala sobre admissão e matrícula
+- intent: maximo_materias_dependencia
+  examples: |
+    - o que acontece se eu [reprovar] em duas [matérias]
+    - qual a quantidade máxima de [disciplinas] em que posso reprovar
+    - máximo de disciplinas em que posso reprovar
+    - max de matérias da dependência
+    - qual o máximo de [disciplinas] em que posso reprovar
+    - maximo de materias da dependencia
+    - fiquei reprovado em duas [disciplinas]
+- intent: plano_ensino_datas
+  examples: |
+    - datas de entrega
+    - é possível alterar o plano d ensino dps de um tempo?
+    - onde ficarão disponíveis os planos de ensino
+    - data de entrega plano de ensino
+    - datas de entrega e divulgacao dos planos de ensino
+    - divulgaçao dos planos de ensino
+    - O professor precisa apresentar o plano de ensino
+- intent: reuniao_pedagogica_decisao_final
+  examples: |
+    - Como funciona a decisão de [reprovar] ou não no final do ano?
+    - decisoes de reprovacao
+    - tem como eu n [reprovar] se minha [nota] n for boa
+    - podem decidir me deixar passar de ano?
+    - decisões de reprovaçao
+    - decisão de reprovacao
+    - Se eu tirar abaixo de 60 na final posso passar?
+- intent: SC_aproveitamento
+  examples: |
+    - Quero [fazer] solicitação de aproveitamento de conhecimentos anteriores urgente
+    - Como solicitar aproveitamento de conhecimentos anteriores [pela internet]?
+    - Aproveitamento de disciplinas cursadas [no sistema de chamados]
+    - Pedido de aproveitamento de disciplinas cursadas [pela internet]
+    - Quero [fazer] pedido de aproveitamento de conhecimentos anteriores [pela internet]
+    - Teria como eu [fazer] pedido de aproveitamento de experiencia  [no sistema]?
+    - Solicitar aproveitamento de disciplinas cursadas  [no academico]
+    - Solicitar aproveitamento de experiências  [no academico]
+    - Como [fazer] pedido de aproveitamento de experiencias anteriores [pelo site]
+- intent: informar_campus
+  examples: |
+    - sou do campus [Vitoria](campus)
+    - sou do [Cariacica](campus)
+    - [guarapari](campus)
+    - sou do campus [Montanha](campus)
+    - sou do campus [Piúma](campus)
+    - sou do campus [Linhares](campus)
+    - sou do campus [Nova Venécia](campus)
+    - sou do campus [Alegre](campus)
+    - [nova venécia](campus)
+    - [vitória](campus)
+- synonym: bomdia
+  examples: |
+    - b dia
+    - b tarde
+    - b noite
+    - bom dia
+    - boa tarde
+    - boa noite
+    - bon dia
+    - boua tarde
+    - boua noite
+- synonym: oi
+  examples: |
+    - oi
+    - oii
+    - oiii
+    - olá
+    - ola
+    - ei
+- synonym: transferencia
+  examples: |
+    - transferencia
+    - transferência
+    - transferensia
+    - mudança
+    - mudansa
+    - mudanssa
+    - mudanca
+    - mudamça
+    - mudar
+    - trocar
+    - troco
+- synonym: representante
+  examples: |
+    - representante
+    - representantes
+    - representante de turma
+    - representante da turma
+    - representantes de turma
+    - representantes da turma
+    - repre
+    - repres
+    - repres de turma
+    - repres da turma
+    - líder
+    - lider
+    - lideres
+    - lider de turma
+    - lider da turma
+    - líder de turma
+    - líder da turma
+    - lideres de turma
+    - lideres da turma
+    - líderes de turma
+    - líderes da turma
+- synonym: ead
+  examples: |
+    - ead
+    - estudo a distancia
+    - ensido a distancia
+    - apnp
+    - Atividade pedagógica não presencial
+    - Atividades pedagógicas não presencial
+    - modalidade a distancia
+    - curso a distancia
+    - distancia
+- synonym: presencial
+  examples: |
+    - presencial
+    - estudo presencial
+    - ensino presencial
+    - curso presencial
+    - modalidade presencial
+- synonym: turno
+  examples: |
+    - turno
+    - vespertino
+    - matutino
+    - noite
+    - noturno
+    - periodo noturno
+    - manha
+    - tarde
+- synonym: prova
+  examples: |
+    - prova
+    - provas
+    - avaliação
+    - avaliacao
+    - avaliacoes
+    - avaliações
+    - avaliacões
+    - avaliaçoes
+    - avaliasao
+    - avaliasão
+    - avaliacaum
+    - avaliaçaum
+    - avaliassaum
+    - avaliasoes
+    - teste
+    - prova avaliativa
+    - trabalho
+    - trabalhos
+    - trabalio
+    - trabalios
+    - atividade
+    - atividades
+    - atvd
+    - atvds
+- synonym: NE
+  examples: |
+    - necessidades especificas
+    - necessidades específicas
+    - ne
+    - necessidades especiais
+    - deficit de atencao
+    - deficit
+    - hiperatividade
+    - hiperativo
+    - tdah
+    - transtorno do deficit de atenção com hiperatividade
+    - autismo
+    - sindrome de down
+    - especial
+    - deficiente
+    - pessoa com deficiencia
+    - portador de ne
+    - portador de necessidades especiais
+    - portador de necessidades especificas
+    - portadora de necessidades especiais
+    - portadora de necessidades especificas
+    - portador de deficiencia
+    - portadora de deficiência
+    - PPD
+- synonym: pontuacao
+  examples: |
+    - pontuacao
+    - pontuação
+    - pontuasao
+    - pontuacaum
+    - pontuasaum
+    - pomtuacao
+    - pontos
+    - ponto
+    - pomto
+    - nota
+    - notas
+    - valor
+- synonym: modalidades
+  examples: |
+    - trimestre
+    - semestre
+    - bimestre
+- synonym: repetir ano
+  examples: |
+    - repetir
+    - repito
+    - reprovar
+    - reprovação
+    - reprovacao
+    - reprovasao
+    - reprovado
+    - reprovada
+- synonym: disciplinas
+  examples: |
+    - disciplinas
+    - disciplina
+    - materias
+    - materia
+    - componente curricular
+- synonym: materias nucleo comum
+  examples: |
+    - artes
+    - arte
+    - português
+    - portugues
+    - port
+    - inglês
+    - ingles
+    - ing
+    - espanhol
+    - educação física
+    - educacao fisica
+    - ed fisica
+    - ed fis
+    - historia
+    - história
+    - hist
+    - geografia
+    - geo
+    - sociologia
+    - socio
+    - filosofia
+    - filo
+    - matemática
+    - matematica
+    - mat
+    - física
+    - fisica
+    - fis
+    - química
+    - quimica
+    - qui
+    - biologia
+    - bio
+- synonym: dependencia
+  examples: |
+    - dependencia
+    - dependência
+    - dp
+    - dep
+    - dependencias
+    - dependências
+    - depe
+    - dependensia
+    - dependençia
+- synonym: aluno
+  examples: |
+    - discente
+    - discentes
+    - aluno
+    - alunos
+    - estudante
+    - estudantes
+- synonym: rematrícula
+  examples: |
+    - renovação da matrícula
+    - renovacao da matricula
+    - renovação de matricula
+    - renovasao de matricula
+    - revasaum de matricula
+    - rematrícula
+    - rematricula
+    - re-matricula
+    - re matricula
+- synonym: regime domiciliar
+  examples: |
+    - regime domiciliar
+    - atendimento domiciliar
+- synonym: rod
+  examples: |
+    - rod
+    - Regulamento da Organização Didática
+    - regulamento da organizacao didatica
+    - rod2020
+    - rod 2020
+    - normas
+    - regulamento
+    - normas e regulamento
+- synonym: online
+  examples: |
+    - online
+    - pelo site
+    - no site
+    - no site do ifes
+    - pela internet
+    - na internet
+    - internet
+    - pelo sistema de chamados
+    - sistema de chamados
+    - no sistema de chamados
+    - pelo academico
+- synonym: faço
+  examples: |
+    - faso
+    - fasso
+    - faço
+    - faco
+    - fazer
+    - faser
+    - fase
+    - faze
+    - faz
+- synonym: campus
+  examples: |
+    - campus
+    - campi

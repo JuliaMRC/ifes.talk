@@ -1,0 +1,20 @@
+version: "2.0"
+stories:
+- story: cumprimentar e perguntar como está - unhappy path (.\tests\test_stories.yml)
+  steps:
+  - intent: cumprimento
+  - action: utter_cumprimentar
+  - action: nome_form
+  - slot_was_set:
+    - primeiro_nome: João
+  - action: utter_cumprimentar_usuario_nome
+  - intent: como_esta
+  - action: utter_como_estou
+  - intent: esta_feliz  # predicted: me_elogiar: por que voce esta me perguntando isso?
+  - action: utter_usuario_esta_feliz
+  - intent: agradecer
+  - action: utter_de_nada
+  - action: utter_continuar_conversa
+  - intent: negar
+  - action: utter_ok
+  - action: utter_despedir
